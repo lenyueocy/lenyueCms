@@ -11,7 +11,7 @@ class Index extends Common
     {
 
         $this->assign('demo_time',$this->request->time());
-        $template = 'template/'. $this->theme .'/Index_index.html';
+        $template = 'template/'. $this->theme .'/index_index.html';
         return $this->fetch($template);
     }
 
