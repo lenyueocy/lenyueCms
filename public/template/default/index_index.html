@@ -8,89 +8,188 @@
     <meta name="keywords" content="{if condition="isset($keywords)"}{$keywords}{else/}{web name='keywords' /}{/if}" />
     <meta name="description" content="{if condition="isset($description)"}{$description}{else/}{web name='description' /}{/if}" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/css.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/default.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/index.css">
     <script type="text/javascript" src="__PUBLIC__/js/jquery1.42.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/js/jquery.SuperSlide.2.1.1.js"></script>
+
+    <script type="text/javascript" src="__PUBLIC__/js/index.js" ></script>
+    <script type="text/javascript" src="__PUBLIC__/js/scrollReveal.js" ></script>
+
 </head>
 <body>
 <!--header-->
 {include file="public/header"/}
 
+{include file="public/bd"/}
+
 <!--main-->
-<div class="main w1212">
-    <div class="main_top">
-        <div class="m_about">
-            <div class="ban d_a"><span class="f"><font style="font-size:16px;font-weight:bolder;">关 于</font> <font
-                    style="font-weight:bold;color:#3b3b3b;">ABOUT US</font></span><span class="more"><a
-                    href="">MORE</a></span></div>
-            <div class="clear"></div>
-            <div class="con">
-                <img src="__PUBLIC__/images/kaixin.jpg"/>
-                ABOUT
-                ... ...
-            </div>
-        </div>
-        <div class="m_f"></div>
-
-        <div class="m_news">
-            <div class="ban dashed_n"><span class="f"><font style="font-size:16px;font-weight:bolder;">新闻中心</font> <font
-                    style="font-weight:bold;color:#3b3b3b;">NEWS</font></span><span class="more"><a
-                    href="index.php?s=/List/index/cid/3.html">MORE</a></span></div>
-            <div class="con">
-                <table>
-                    {article cid='3' limit='7'}
-                        <tr>
-                            <td width="5%"><img src="__PUBLIC__/images/lingxing.jpg"/></td>
-                            <td><a href="{$article.url}">{$article.title}</a></td>
-                            <td width="20%">[{$article.publishtime|date='Y-m-d',###}]</td>
-                        </tr>
-                    {/article}
-                </table>
-            </div>
-        </div>
-        <div class="m_f"></div>
-
-        <div class="m_contact">
-            <div class="ban d_c"><span class="f"><font style="font-size:16px;font-weight:bolder;">联系我们</font> <font
-                    style="font-weight:bold;color:#3b3b3b;">CONTACT US</font></span></div>
-            <div class="con">
-                <div class="sbx">真诚为您服务</div>
-                <table>
-                    <tr>
-                        <td width="20%">联系人:</td>
-                        <td>孙经理</td>
-                    </tr>
-                    <tr>
-                        <td>电&nbsp;话:</td>
-                        <td>0373-3021362</td>
-                    </tr>
-                    <tr>
-                        <td>手&nbsp;机:</td>
-                        <td>13937335606</td>
-                    </tr>
-                    <tr>
-                        <td>传&nbsp;真:</td>
-                        <td>0373-2678811</td>
-                    </tr>
-                    <tr>
-                        <td>地&nbsp;址:</td>
-                        <td>新乡市宏利大道西段西冀场工业园</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+<div class="mainDiv">
+    <div class="title">
+        <h2>公司概况</h2>
+        <h3><span><i class="ico"></i>COMPANY PROFILE<i class="ico1"></i></span></h3>
 
     </div>
-    <div class="clear"></div>
-    <div class="pro">
-        <div class="ban p_a"><span class="f"><font style="font-size:16px;font-weight:bolder;">  &nbsp;&nbsp;推荐产品</font> <font
-                style="font-weight:bold;color:#3b3b3b;">REDUCTS</font></span><span class="more2 fir"></div>
-        <div class="con pro_con">
+    <div class="introDiv">
+        <div class="intro_menu hd">
+            <ul class="cleafix">
+                <li data-scroll-reveal="wait 0.15s, then enter left and move 100px over 1s"><a href="javascript:;"><i></i>公司介绍<i class="ico"></i></a></li>
+                <li data-scroll-reveal="wait 0.25s, then enter left and move 100px over 1s"><a href="javascript:;"><i></i>组织架构<i class="ico"></i></a></li>
+                <li data-scroll-reveal="wait 0.35s, then enter left and move 100px over 1s"><a href="javascript:;"><i></i>企业文化<i class="ico"></i></a></li>
+                <li data-scroll-reveal="wait 0.45s, then enter left and move 100px over 1s"><a href="javascript:;"><i></i>诚聘英才<i class="ico"></i></a></li>
+
+            </ul>
+        </div>
+        <div class="intro_Box bd w1200">
             <ul>
+                <li class="cleafix">
+                    <div data-scroll-reveal="wait 0.15s, then enter left and move 100px over 1s"  class="introL fl">
+                        <h2>公司介绍</h2>
+                        <p>四川大决策证券投资顾问有限公司成立于1998年，注册资本1000万元，是中国证监会首批批准的专业证券投资咨询机构（经营证券期货业务许可证号915101067130530143），中国证券业协会会员单位（会员代码351088）。
+                            公司秉承“稳健经营、持续创新、超越进取”的经营理念，构建出“以客户需求为导向、以分析研究为驱动、以投顾服务为核心”的三级架构体系，不断提升核心竞争力；						</p>
+                        <h3 class="divBtn"><a href="{:url('index/companyinfo')}" >了解详情</a></h3>
+                    </div>
+                    <div  data-scroll-reveal="wait 0.25s, then enter right and move 100px over 1s"  class="introR fr">
+                        <img src="__PUBLIC__/images/companyinfo/gongsi.png"/></div>
+                </li>
+                <li class="cleafix">
+                    <div data-scroll-reveal="wait 0.25s, then enter left and move 100px over 1s"  class="introL fl">
+                        <h2>组织架构</h2>
+                        <p>秉承勤勉尽职、合规审慎的专业化经营理念，公司搭建起以执业投顾为基石，以合规风控为纲领的三级组织结构。公司目前主要下辖：市场运营中心、投顾服务中心、行政人事中心、财务管理中心、合规风控中心、分公司（上海、广州）。						</p>
+                        <h3 class="divBtn"><a href="index/index/company/id/4.html" >了解详情</a></h3>
+                    </div>
+                    <div  data-scroll-reveal="wait 0.25s, then enter right and move 100px over 1s"  class="introR fr">
+                        <img src="__PUBLIC__/images/jiesao/a03f0bd7f0792c29372d210096950300.png"/></div>
+                </li>
+                <li class="cleafix">
+                    <div data-scroll-reveal="wait 0.35s, then enter left and move 100px over 1s"  class="introL fl">
+                        <h2>企业文化</h2>
+                        <p>以市场为导向、以客户为中心，发挥专业、服务和品牌优势，不断为客户、员工、股东和社会创造更大的价值
+                            ，努力创建“有价值、有责任”的现代证券金融企业，让每一位投资者具有更专业的投资策略，享受财富人生						</p>
+                        <h3 class="divBtn"><a href="index/index/company/id/5.html">了解详情</a></h3>
+                    </div>
+                    <div  data-scroll-reveal="wait 0.25s, then enter right and move 100px over 1s"  class="introR fr">
+                        <img src="__PUBLIC__/images/jiesao/874e228c617de6fcb800d1faaef64dfe.png"/></div>
+                </li>
+                <li class="cleafix">
+                    <div data-scroll-reveal="wait 0.45s, then enter left and move 100px over 1s"  class="introL fl">
+                        <h2>诚聘英才</h2>
+                        <p>证券投资顾问
+                            岗位职责：
+                            1、对A股二级市场有较深入的了解；对待市场有自己独立的判读，实盘交易经验丰富，能捕捉到市场超额收益的机会；
+                            2、能撰写相关的投资策略报告，有深厚的文字功底，语言表达能力强；						</p>
+                        <h3 class="divBtn"><a href="index/index/company/id/6.html" >了解详情</a></h3>
+                    </div>
+                    <div  data-scroll-reveal="wait 0.25s, then enter right and move 100px over 1s"  class="introR fr">
+                        <img src="__PUBLIC__/images/jiesao/4d9b3be4f3f2a93a32d03fb6a247b658.png" /></div>
+                </li>
 
+            </ul>
         </div>
     </div>
+    <!--明星产品/OUR PRODUCTS-->
+    <div class="productWrap">
+        <div class="product w1200">
+            <h2>明星产品/OUR PRODUCTS</h2>
+            <ul>
+                <li data-scroll-reveal="wait 0.25s, then enter left and move 100px over 1s">
+                    <i><img src="http://www.djc888.com/uploads/20170825/e0ff6de97a9791b3a49d4b42c55834c1.png" /></i>
+                    <span>短线掘金</span>
+                    <p>超3000只个股价值成长双动因分析、阿尔法α贝塔β综合风险监测，逐日优选、智能传递</p>
+                    <a href="index/index/product/id/10.html" >了解详情</a>
+                </li>
+                <li data-scroll-reveal="wait 0.25s, then enter left and move 100px over 1s">
+                    <i><img src="http://www.djc888.com/uploads/20170825/44e3f4c9740660ab3326c00a34adfa2b.png" /></i>
+                    <span>红马甲</span>
+                    <p>有多少交易日就有多少机会，T、价差、波段、前瞻布局，大V领投，见证反向博弈的力量</p>
+                    <a href="index/index/product/id/35.html" >了解详情</a>
+                </li>
+                <li data-scroll-reveal="wait 0.25s, then enter left and move 100px over 1s">
+                    <i><img src="http://www.djc888.com/uploads/20170825/76edd9f5924f902824ae506971208bbf.png" /></i>
+                    <span>私人订制</span>
+                    <p>首席指导、私人金服、全程护投、一对一，旨为雇主探索最佳合理回报，非精准不交易</p>
+                    <a href="index/index/product/id/36.html">了解详情</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--热点资讯-->
+    <div class="rdzxDiv w1200">
+        <div class="title">
+            <h2>热点资讯</h2>
+            <h3><span><i class="ico"></i>HOT SPOT INFORMATION<i class="ico1"></i></span></h3>
+
+        </div>
+        <div class="rdzxTab cleafix">
+            <div class="tab_menu hd fl">
+                <ul>
+                    <li class="ico"><span>原创观点</span></li>
+                    <li class="ico1"><span>投资者教育</span></li>
+                    <li class="ico2"><span>公司新闻</span></li>
+                </ul>
+            </div>
+            <div class="tab_box bd">
+                <ul>
+                    <li>
+                        <p><a href="index/index/shownews/id/358.html" ><em>四川大决策老刁复盘：追涨意愿不足，市场带量震荡</em></a>
+                            <span>06-06 13:23</span></p>
+                        <p><a href="index/index/shownews/id/357.html" ><em>四川大决策老刁复盘：普涨过后，创业板还有继续补涨动力</em></a>
+                            <span>06-05 16:59</span></p>
+                        <p><a href="index/index/shownews/id/356.html" ><em>四川大决策老刁复盘：中小创业板强势反弹，市场再现“普涨”</em></a>
+                            <span>06-05 12:28</span></p>
+                        <p><a href="index/index/shownews/id/355.html" ><em>四川大决策老刁复盘：成交量极度萎缩，市场低调整理性质未变</em></a>
+                            <span>06-04 21:28</span></p>
+                        <p><a href="index/index/shownews/id/354.html" ><em>四川大决策老刁复盘：周末消息面利空与利多交织，各大指数调整态势仍在继续</em>
+                            </a><span>06-04 09:16</span></p>
+                        <p><a href="index/index/shownews/id/353.html" ><em>四川大决策老刁复盘：2连阴，本周创业板大跌5.26%，市场继续弱势调整</em></a>
+                            <span>06-01 19:17</span></p>
+                        <p><a href="index/index/shownews/id/352.html" ><em>四川大决策老刁复盘：周期股逞强，不抵创新题材股下跌，市场调整延续</em></a>
+                            <span>06-01 12:49</span></p>
+                        <h2 class="divBtn"><a href="index/index/listnews/cid/10003.html" >查看更多</a></h2>
+                    </li>
+                    <li>
+                        <p><a href="index/index/shownews/id/341.html" ><em>中国证券业协会证券投资咨询机构委员会召开第一次全体会议</em></a>
+                            <span>05-25 00:52</span></p>
+                        <p><a href="index/index/shownews/id/53.html" ><em>“投资者保护·明规则、识风险”案例——期货交易重资质 非法平台莫着迷</em></a><
+                            span>11-03 20:25</span></p>
+                        <p><a href="index/index/shownews/id/52.html" ><em>“投资者保护·明规则、识风险”案例——远离非法投资咨询 树立理性投资理念</em></a>
+                            <span>11-03 20:23</span></p>
+                        <p><a href="index/index/shownews/id/51.html" ><em>“投资者保护·明规则、识风险”案例——“代客理财”莫轻信 证券投资走正途</em></a>
+                            <span>11-03 20:19</span></p>
+                        <p><a href="index/index/shownews/id/44.html" ><em>“投资者保护·明规则、识风险”案例——非合格投资者的“危险游戏”</em></a>
+                            <span>09-16 13:55</span></p>
+                        <p><a href="index/index/shownews/id/43.html" ><em>“投资者保护·明规则、识风险”案例——花言巧语不可一概而信 理性分析方能去伪存真</em></a>
+                            <span>09-16 13:53</span></p>
+                        <p><a href="index/index/shownews/id/42.html" ><em>“投资者保护·明规则、识风险”案例——股权变动需披露 切莫违规做代持</em></a>
+                            <span>09-15 21:44</span></p>
+                        <h2 class="divBtn"><a href="index/index/listnews/cid/10010.html" >查看更多</a></h2>
+                    </li>
+                    <li>
+                        <p><a href="index/index/shownews/id/306.html" ><em>万众瞩目的全明星赛事已经结束啦！！！</em></a>
+                            <span>05-04 21:00</span></p>
+                        <p><a href="index/index/shownews/id/304.html" ><em>热烈祝贺公司“大决策”商标注册申请成功</em></a>
+                            <span>05-04 16:08</span></p>
+                        <p><a href="index/index/shownews/id/211.html" ><em>热烈祝贺公司荣获“2017年值得信赖投资咨询公司”荣誉称号</em></a>
+                            <span>03-30 12:36</span></p>
+                        <p><a href="index/index/shownews/id/158.html" ><em>在这里，Happy Birthday！</em></a><
+                            span>03-16 17:20</span></p>
+                        <p><a href="index/index/shownews/id/123.html" ><em>三月八日，女神节！快乐！</em></a>
+                            <span>03-08 18:07</span></p>
+                        <p><a href="index/index/shownews/id/110.html" ><em>正月十五，共庆元宵</em></a>
+                            <span>03-02 14:26</span></p>
+                        <p><a href="index/index/shownews/id/98.html" ><em>Wind同仁到我公司交流研讨</em></a>
+                            <span>02-28 12:36</span></p>
+                        <h2 class="divBtn"><a href="index/index/listnews/cid/10004.html">查看更多</a></h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </div>
 <div class="clear"></div>
+
+
 <!--footer-->
 {include file="public:footer"/}
 </body>

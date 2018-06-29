@@ -52,7 +52,7 @@ a{
 }
 .nav_bg{
 	width: 100%;
-	height: 45px;
+	height: auto;
 	background: url(../images/nav_bg.jpg) repeat-x;
 }
 .menu{

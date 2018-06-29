@@ -11,6 +11,7 @@ class Index extends Common
     {
 
         $this->assign('demo_time',$this->request->time());
+        $this->assign('head_on','index');
         $template = 'template/'. $this->theme .'/index_index.html';
         return $this->fetch($template);
     }
@@ -26,4 +27,30 @@ class Index extends Common
         echo str_replace('/index.php','',$a);
         //print_r(url('index/index',['id' => 2]));
     }
+    public function companyinfo(){
+        $this->assign('demo_time',$this->request->time());
+        $this->assign('head_on','companyinfo');
+        $template = 'template/'. $this->theme .'/companyinfo.html';
+        return $this->fetch($template);
+    }
+    public function shortLineNuggets(){
+        $this->assign('demo_time',$this->request->time());
+        $this->assign('head_on','shortLineNuggets');
+        $template = 'template/'. $this->theme .'/shortLineNuggets.html';
+        return $this->fetch($template);
+    }
+    public function team(){
+        $this->assign('demo_time',$this->request->time());
+        $this->assign('head_on','team');
+        $template = 'template/'. $this->theme .'/team.html';
+        return $this->fetch($template);
+    }
+
+    public function contact(){
+        $this->assign('demo_time',$this->request->time());
+        $this->assign('head_on','contact');
+        $template = 'template/'. $this->theme .'/contact.html';
+        return $this->fetch($template);
+    }
+
 }

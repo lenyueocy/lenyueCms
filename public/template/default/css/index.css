@@ -1,0 +1,303 @@
+
+/*header*/
+.headerWrap{ width: 100%; height: auto;/*background: #eee;*/ min-width: 1200px; position: relative; z-index: 100;}
+.header{ height: auto; position: relative;}
+/*热线*/
+.hotLine{ position: absolute; right: 0; top: 0;}
+.hotLine span,.hotLine a{ float: right; display: inline-block; height: 30px; line-height: 30px; font-size: 14px; color: #666;}
+.hotLine em{ display: block; float: right; height: 16px; width: 1px; background: #666; margin: 7px 10px;}
+.hotLine a:hover{ color: #fd4242;}
+/*logo*/
+.logo{ width: 340px; height: auto; padding: 30px 0;}
+.logo a{ display: block;}
+.logo a img{ display: block; width: 100%; height: 80px;}
+
+.nav{ float: left; height: auto; margin-top: 56px;  position:relative; z-index:1;margin-left: 100px;  }
+.nav a{ color:#333;  }
+.nav .nLi{ margin-left: 4px; float:left;  position:relative; display:inline;  }
+.nav .nLi h3{ float:left;  }
+.nav .nLi h3 a{ display:block; padding:0 18px; font-size:16px; border-radius: 50px; height: 28px; line-height: 28px;  }
+.nav .sub{ display:none; width:100%; left:0; top:28px;  position:absolute;  line-height:28px;}
+.nav .sub li{ zoom:1; }
+.nav .sub a{ display:block; padding:0 10px; margin-top: 8px; background: url("../images/icon/back0.png"/*tpa=http://www.djc888.com/home/img/back0.png*/) repeat; text-align: center; border-radius: 50px; font-size: 16px; color: #fff; }
+.nav .sub a:hover{ background:#fd4242; color:#fff;  }
+.nav .on h3 a{ background:#fd4242; color:#fff;   }
+
+
+/*banner*/
+.banner{ width:100%; height:auto; overflow:hidden; position:relative;z-index: 10;  min-width: 1200px;}
+.banner .hd{ width: 100%; position: absolute; bottom: 20px; left: 0; z-index: 100;}
+.banner .hd ul{ width: 64px; height: auto; overflow: hidden; margin: 0 auto;}
+.banner .hd ul li{ width: 12px; float: left; margin: 0 2px; height: 12px; border-radius: 50px; background: #fff;}
+.banner .hd ul li.on{ background: #fac700;}
+.banner .bd{ position:relative; z-index:0;   }
+.banner .bd li{ zoom:1; vertical-align:middle; }
+.banner .bd img{ width:100%; height:600px; display:block;  }
+/*页面主体部分*/
+.mainDiv{ width: 100%; height: auto; min-width: 1200px;}
+.main{ height: auto;}
+.title{ width: 1200px; margin: 46px auto 0; height: auto;}
+.title h2{ height: auto; line-height: 30px; text-align: center; font-size: 20px; color: #333333; font-weight: bold;}
+.title h3{ text-align: center; font-size: 20px; color: #999999;}
+.title h3 span{ position: relative; padding: 0 54px; line-height: 32px;}
+.title h3 span i{ position: absolute; top: 50%; left: 0; display: block; width: 48px; height: 1px; background: #cccccc;}
+.title h3 span i.ico1{ left: auto; right: 0;}
+.title1 h2{ line-height: 32px;}
+.title1 h3{ font-size: 18px; color: #999999;}
+.title1 h3 span i{ display: none;}
+/*公司介绍*/
+.introDiv{ width: 100%; height: auto; margin-top: 22px; padding-bottom: 50px; border-bottom: 1px solid #eeeeee; min-width: 1200px;}
+.introDiv .intro_menu{ width: 100%; height: auto; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee; min-width: 1200px;}
+.introDiv .intro_menu ul{ width: 488px; margin: 0 auto;}
+.introDiv .intro_menu ul li{ float: left; height: 36px; line-height: 36px; text-align: center; margin: 0 auto;}
+.introDiv .intro_menu ul li a{ display: inline-block; margin: 0 5px; position: relative; padding: 0 20px; font-size: 18px; color: #ccc;}
+.introDiv .intro_menu ul li a i{ display: none; position: absolute; left: 0; top: 50%; margin-top: -5px; width: 9px; height: 10px; background: url("../images/icon/ico1.png"/*tpa=http://www.djc888.com/home/img/ico1.png*/) no-repeat;}
+.introDiv .intro_menu ul li a i.ico{ left: auto; right: 0;}
+.introDiv .intro_menu ul li.on a{ color: #fd3f3f;}
+.introDiv .intro_menu ul li.on a i{ display: block;}
+.introDiv .intro_Box{ margin-top: 50px; box-shadow: 0 0 12px #f2f2f2;}
+.introDiv .intro_Box ul{ width: 100%; height: auto;}
+.introDiv .intro_Box ul li{ width: 100%; height: auto; float: left;}
+.introDiv .intro_Box ul li .introL{ padding: 34px 40px 0; width: 522px;}
+.introDiv .intro_Box ul li .introL h2{ height: 34px; margin-bottom: 22px; line-height: 34px; padding-left: 12px; background: url("../images/icon/ico2.png"/*tpa=http://www.djc888.com/home/img/ico2.png*/) 0 center no-repeat; font-size: 19px; color: #333333;}
+.introDiv .intro_Box ul li .introL p{ margin-bottom: 24px; font-size: 14px; color: #666; line-height: 24px;}
+.divBtn{ width: 100%; padding-top: 35px; height: auto; text-align: center;}
+.divBtn a,.geneR ul li .mailBut{ display: inline-block; box-shadow: 0 0 10px rgba(255,98,98,0.48); width: 98px; background: url("../images/icon/ico3.png"/*tpa=http://www.djc888.com/home/img/ico3.png*/) repeat-y; border-radius: 50px; font-size: 16px; color: #fff; height: 30px; line-height: 30px;}
+.divBtn a:hover,.geneR ul li .mailBut:hover{box-shadow: 0 0 10px rgba(255,98,98,1);}
+.more123{
+          float: right;
+          display: inline-block;
+          box-shadow: 0 0 10px rgba(255,98,98,0.48);
+          width: 98px;
+          background: url("") repeat-y;
+          border-radius: 50px;
+          font-size: 16px;
+          color: #fff;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+      }
+.introDiv .intro_Box .introR{ width: 598px; height: auto;}
+.introDiv .intro_Box .introR img{ display: block; width: 100%; height: 417px;}
+/*投研团队*/
+.tytdDiv{ height: auto; position: relative; z-index: 50;}
+.tytdDiv ul{ width: 100%; height: auto; margin-top: 40px;}
+.tytdDiv ul li{ width: 360px; margin-bottom: 40px; box-shadow: 0 0 12px #f2f2f2; height: auto; padding: 10px; float: left; margin-right: 30px;}
+.tytdDiv ul li .ulTop{ width: 100%; height: auto;}
+.tytdDiv ul li .ulTop a{ display: block; width: 132px; height: 182px; overflow: hidden; float: left;}
+.tytdDiv ul li .ulTop a img{ display: block; width: 100%; height: 182px;-moz-transition: all 0.6s ease-in; -webkit-transition: all 0.6s ease-in; -o-transition: all 0.6s ease-in; transition: all 0.6s ease-in;}
+.tytdDiv ul li .ulTop a img:hover{transform:scale(1.1); -webkit-transform:scale(1.1); -moz-transform:scale(1.1); -o-transform:scale(1.1); -ms-transform:scale(1.1);}
+.tytdDiv ul li .ulTop .ultopTxt{ float: right; width: 210px; height: auto; margin-top: -6px;}
+.tytdDiv ul li .ulTop .ultopTxt p{ width: 100%; line-height: 23px; font-size: 12px; color: #999;}
+.tytdDiv ul li .ulTop .ultopTxt p b{ color: #666;}
+.tytdDiv ul li h3{ overflow: hidden; padding: 23px 0 13px;}
+.tytdDiv ul li h3 span{ display: inline-block; float: left;height: 22px; line-height: 22px; font-size: 16px; color: #333;}
+.tytdDiv ul li h3 em{ margin-left: 6px; display: inline-block; float: left; background: #fac700; height: 22px; border-radius: 50px; padding: 0 8px; line-height: 22px; font-size: 12px; color: #ff6262;}
+/*明星产品/OUR PRODUCTS*/
+.productWrap{ position: relative; z-index: 100; width: 100%; padding: 35px 0 20px; height: auto; background: url("../images/icon/back.jpg"/*tpa=http://www.djc888.com/home/img/back.jpg*/) center top no-repeat;}
+.product{ height: auto;}
+.product h2{ height: 48px; line-height: 48px; font-size: 18px; color: #ffffff; text-align: center; font-weight: bold;}
+.product ul{ margin-top: 44px; width: 100%; height: auto; overflow: hidden;}
+.product ul li{ width: 31%; float: left; margin: 0 1.16%;}
+.product ul li i{ display: block; width: 90px; margin: 0 auto;}
+.product ul li i img{ display: block; width: 100%; height: 90px;}
+.product ul li span{ margin-bottom: 16px; display: block; height: 32px; line-height: 32px; text-align: center; font-size: 16px; color: #fac700;}
+.product ul li p{ line-height: 24px; text-align: center; font-size: 14px; color: #fff;}
+.product ul li a{ display: block; margin: 30px auto; text-align: center; width: 98px; height: 28px; border-radius: 50px; border: 1px solid #fff; font-size: 14px; color: #eee; line-height: 28px;}
+.product ul li a:hover{ border: 1px solid #fd4242; background: #fd4242; color: #fff;}
+/*热点资讯*/
+.rdzxDiv{ height: auto; }
+.rdzxTab{ width: 100%; height: auto;box-shadow: 0 0 12px #f2f2f2;margin-top: 45px;}
+.rdzxTab .tab_menu{ width: 200px; height: auto;}
+.rdzxTab .tab_menu ul{ width: 100%; height: auto; float: left;}
+.rdzxTab .tab_menu ul li{cursor: pointer; width: 100%; height: 140px; float: left; text-align: center; font-size: 18px; color: #fff;}
+.rdzxTab .tab_menu ul li span{ margin-top: 50px; display: inline-block; height: 36px; line-height: 36px;}
+.rdzxTab .tab_menu ul li.on span{ border-bottom: 2px solid #fff;}
+.rdzxTab .tab_menu ul li.ico{ background:url("../images/icon/ico5.png"/*tpa=http://www.djc888.com/home/img/ico5.png*/) no-repeat;}
+.rdzxTab .tab_menu ul li.ico1{  background:url("../images/icon/ico6.png"/*tpa=http://www.djc888.com/home/img/ico6.png*/) no-repeat;}
+.rdzxTab .tab_menu ul li.ico2{  background:url("../images/icon/ico7.png"/*tpa=http://www.djc888.com/home/img/ico7.png*/) no-repeat;}
+.rdzxTab .tab_box{ float: right; width: 900px; height: auto; padding: 38px 50px 0;}
+.rdzxTab .tab_box ul{ width: 100%; height: auto; overflow: hidden;}
+.rdzxTab .tab_box ul li{ width: 100%; float: left; height: 382px; overflow: hidden;}
+.rdzxTab .tab_box ul li p{ width: 100%; height: 40px; line-height: 40px; float: left; background: url("../images/icon/ico8.png"/*tpa=http://www.djc888.com/home/img/ico8.png*/) 0 center repeat-x;}
+.rdzxTab .tab_box ul li p a{ width: 750px; float: left; display: block; height: 40px; font-size: 14px; color: #666; white-space: normal;text-overflow: ellipsis; overflow: hidden;}
+.rdzxTab .tab_box ul li p a em{ display: inline-block; float: left; height: 40px; background: #fff; padding-right: 16px;}
+.rdzxTab .tab_box ul li p span{ padding-left: 16px; float: right; display: block; background: #fff; font-size: 12px; color: #666;}
+.rdzxTab .tab_box ul li h2{ float: left;}
+/*footer*/
+.footerDiv{ margin-top: 10px; width: 100%; height: auto; background: #333; min-width: 1200px;}
+.footer{ padding: 50px 0; height: auto; overflow: hidden;}
+.footer .fooL{ width: 880px;}
+.footer .fooL ul{ width: 750px; height: auto; float: left;}
+.footer .fooL ul li{ width: 170px; margin-right: 17px; float: left;}
+.footer .fooL ul li h2{ height: 14px; margin-bottom: 12px; line-height: 14px; font-size: 14px; color: #fff;}
+.footer .fooL ul li h2 a{ height: 14px; line-height: 14px; font-size: 14px; color: #fff;}
+.footer .fooL ul li a{ display: block; height: 40px; line-height: 40px; font-size: 12px; color: #bebebe;}
+.footer .fooL ul li a:hover{ color: #fd4242;}
+.footer .fooR{ width: 280px; padding-left: 39px; border-left: 1px solid #666;}
+.footer .fooR h2{padding-left: 88px; height: 36px; line-height: 36px; font-size: 14px; color: #eeeeee; font-weight: bold;}
+.footer .fooR span{ padding-left: 88px; display: block; height: 30px; font-size: 12px; color: #eee; line-height: 40px;}
+.footer .fooR em{ padding-left: 60px; padding-top: 15px; display: block; text-align: center;}
+.footer .fooR em a{display: inline-block; width: 82px; height: 42px; margin: 0 12px;}
+.footer .fooR em a img{ display: block; width: 100%; height: 42px;}
+.footerDiv p{ width: 100%;
+    height: auto;
+    line-height: 22px;
+    border-top: 1px solid #3c3c3c;
+    font-size: 12px;
+    color: #eee;
+    text-align: center;
+    padding: 27px 0;
+}
+.footerDiv p span{ display: block; width: 1200px; margin: 0 auto;}
+.footer .fooL .webchat{ float: left; width: 80px; height: auto;}
+.footer .fooL .webchat span{ display: block;}
+.footer .fooL .webchat span img{ display: block; width: 80px; height: 80px;}
+.footer .fooL .webchat span em{ display: block; height: 30px; line-height: 30px; text-align: center; font-size: 14px; color: #fff;}
+.linkDiv{ height: auto; padding-bottom: 30px;}
+.linkDiv ul{ width: 100%; height: auto; overflow: hidden;}
+.linkDiv ul li{ width: 180px; margin-bottom: 15px; height: auto; float: left; margin-right: 20px;}
+.linkDiv ul li a{ display: block; border: 1px solid #666;}
+.linkDiv ul li a img{ display: block; width: 100%; height: 50px;}
+.linkDiv ul li a:hover{ border: 1px solid #fd4242;}
+
+/**********************产品中心***********************/
+/*金股池*/
+.jgcDiv{ width: 100%; min-width: 1200px; height: auto; background: #fff;}
+.jgcDiv img{ display: block; width: 100%;}
+.jgcDiv i{ display: block; width: 1200px; margin: 0 auto;}
+/**********************购物须知***********************/
+.lineDiv{ display: block; width: 100%; min-width: 1200px; border-top: 1px solid #e7282b;}
+/*面包屑*/
+.crumbs{ height: 72px; line-height: 72px; overflow: hidden;}
+.crumbs span{ display: block; float: left; width: 14px; height: 72px; background: url("../images/icon/ico11.png"/*tpa=http://www.djc888.com/home/img/ico11.png*/) 0 center no-repeat;}
+.crumbs a{ display: block; float: left; font-size: 12px; color: #999999;}
+.crumbs a:hover,.crumbs a.cur{ color: #e7282b;}
+.crumbs em{ display: block; padding: 0 4px; float: left; font-size: 12px; color: #999999;}
+/*文章*/
+.divTxtWrap{ box-shadow: 0 0 12px #f2f2f2;}
+.divTxt{ padding: 26px 45px 50px;}
+.titDiv{  width: 100%; height: 50px; line-height: 50px; text-align: center;}
+.divTxt h6{ text-align: center; height: 30px; line-height: 30px; font-size: 12px; color: #999; margin-bottom: 20px;}
+.titDiv span{ display: inline-block; font-size: 18px; color: #333333; font-weight: bold; position: relative; padding: 0 13px;}
+.titDiv span i{ position: absolute; left: 0; top: 50%; margin-top: -7px; display: block; width: 3px; height: 14px; background: url("../images/icon/ico12.png"/*tpa=http://www.djc888.com/home/img/ico12.png*/) no-repeat;}
+.titDiv span i.ico{ left: auto; right: 0;}
+.divTxt p,.divTxt h3,.divTxt h4{ margin-bottom: 24px; width: 100%; line-height: 24px; text-indent: 2em; font-size: 14px; color: #666666;}
+/*.divTxt p span{ display: block;}*/
+/**********************公司概况***********************/
+.general{ height: auto;}
+.general .geneL{ width: 220px; height: auto;}
+.general .geneL a{ display: block; background: #fd4444; height: 50px; line-height: 50px; text-align: center; font-size: 16px; color: #ffffff;}
+.general .geneL a span{ padding: 0 17px; display: inline-block; position: relative;}
+.general .geneL a span i{ position: absolute; left: 0; top: 50%; margin-top: -4px; display: none; width: 8px; height: 8px; background: url("../images/icon/ico13.png"/*tpa=http://www.djc888.com/home/img/ico13.png*/) no-repeat;}
+.general .geneL a span i.ico{ left: auto; right: 0;}
+.general .geneL a:hover,.general .geneL a.cur{ background: #ee4c4c; color: #ffdc51;}
+.general .geneL a:hover i,.general .geneL a.cur i{ display: block;}
+.general .geneL em{ padding: 11px 0; margin-top: 20px; display: block; box-shadow: 0 0 12px #f2f2f2;}
+.general .geneL em img{ display: block; width: 198px; height: 198px; margin: 0 auto;}
+.general .geneR{ width: 880px; padding: 25px 40px; box-shadow: 0 0 12px #f2f2f2;}
+.general .geneR h2{ margin-bottom: 15px;}
+.general .geneR p{ margin-bottom: 40px; line-height: 24px; font-size: 14px; color: #666666;}
+.general .geneR i{ display: block; margin-bottom: 30px;}
+.general .geneR i img{ display: block; width: 404px; height: auto; margin: 0 auto;}
+/**********************公司新闻***********************/
+.newDiv{ height: auto;}
+.newDiv ul{ width: 100%; height: auto;}
+.newDiv ul li{ width: 100%; margin-bottom: 30px; height: auto; float: left; box-shadow: 0 0 12px #f2f2f2;}
+.newDiv ul li .newImg{ display: block; float: left; width: 225px; height: 130px; overflow: hidden;}
+.newDiv ul li .newImg img{ display: block; width: 100%; height: 130px;-moz-transition: all 0.6s ease-in; -webkit-transition: all 0.6s ease-in; -o-transition: all 0.6s ease-in; transition: all 0.6s ease-in;}
+.newDiv ul li .newImg img:hover{transform:scale(1.1); -webkit-transform:scale(1.1); -moz-transform:scale(1.1); -o-transform:scale(1.1); -ms-transform:scale(1.1); }
+.newDiv ul li .newTxt{ padding-top: 14px; width: 890px; float: right; margin-right: 40px;}
+.newDiv ul li .newTxt h2{ height: 32px; line-height: 32px; margin-bottom: 20px;}
+.newDiv ul li .newTxt h2 a{ margin-right: 30px; display: block; font-size: 16px; color: #333333; font-weight: bold; float: left;}
+.newDiv ul li .newTxt h2 a:hover{ color: #e7282b;}
+.newDiv ul li .newTxt h2 span{ display: block; margin-right: 20px; font-size: 12px; color: #999999;  float: left;}
+.newDiv ul li .newTxt p{ width: 100%; line-height: 20px; font-size: 14px; color: #999999; text-align: justify;}
+/*分页*/
+.page{ padding-top: 50px; padding-bottom:50px; height: auto;}
+.page ul{ width: 100%; height: auto; overflow: hidden; text-align: center;}
+.page ul li{ display: initial;}
+.page a,.page span{ display: inline-block; margin: 0 11px; border: 1px solid #bfbfbf; border-radius: 3px; height: 28px; padding: 0 10px; line-height: 28px; font-size: 14px; color: #999;}
+.page a.cur,.page ul li.active span{ background: #fd4040; border: 1px solid #fd4040; color: #fff;}
+.page a.cur:hover,.page ul li.active span:hover{ color: #fff;}
+.page a:hover,.page span:hover{ border: 1px solid #fd4040; color: #fd4040;}
+/**********************联系我们***********************/
+.contact{ height: auto; padding: 28px 0 45px; box-shadow: 0 0 12px #f2f2f2;}
+.contact i{ display: block; margin-bottom: 34px;}
+.contact i img{ display: block; width: 1130px; height: auto; margin: 0 auto;}
+.contact p{ padding: 12px 0 12px 60px; position: relative; font-size: 14px; color: #333333; line-height: 26px;}
+.contact p em{position: absolute; left:34px; top: 15px; display: block; width: 18px; height: 20px;}
+.contact p em img{ display: block; width: 100%; height: 20px;}
+
+.divTxt p.stateP{ text-indent: 0;}
+.divTxt h3{ padding-top: 10px;}
+.divTxt h4{ text-align: right; padding-top: 30px;}
+/**********************投顾团队***********************/
+.groupDiv{ height: auto;}
+.groupDiv .groupUl{height: auto;}
+.groupDiv .groupUl li{ float: left; margin-bottom: 30px; width: 100%; height: auto; padding: 30px 0 16px; box-shadow: 0 0 12px #f2f2f2;}
+.groupDiv .groupUl .groupImg{ margin-left: 20px; display: block; width: 225px; height: 224px; overflow: hidden; float: left;}
+.groupDiv .groupUl .groupImg img,.groupDiv .groupList li a i img,.videoDiv ul li a i img{ display: block; width: 100%; height: 224px;-moz-transition: all 0.6s ease-in; -webkit-transition: all 0.6s ease-in; -o-transition: all 0.6s ease-in; transition: all 0.6s ease-in;}
+.groupDiv .groupUl .groupImg img:hover,.groupDiv .groupList li a:hover i img,.videoDiv ul li a:hover i img{ transform:scale(1.1); -webkit-transform:scale(1.1); -moz-transform:scale(1.1); -o-transform:scale(1.1); -ms-transform:scale(1.1); }
+.groupDiv .groupUl .groupTxt{ float: right; width: 910px; margin-right: 20px;}
+.groupDiv .groupUl .groupTxt h2,.groupDiv .groupList li h2{ margin-bottom: 15px; width: 100%; height: auto; overflow: hidden;}
+.groupDiv .groupUl .groupTxt h2 a,.groupDiv .groupList li h2 em{ display: block; float: left; height: 22px; line-height: 22px; font-size: 16px; color: #333333; font-weight: bold;}
+.groupDiv .groupUl .groupTxt h2 a:hover{ color: #fd4040;}
+.groupDiv .groupUl .groupTxt h2 span,.groupDiv .groupList li h2 span{ margin-left: 6px; display: block; float: left; padding: 0 8px; background: #fac700; border-radius: 50px; height: 22px; line-height: 22px; font-size: 12px; color: #ff6262;}
+.groupDiv .groupUl .groupTxt p{ line-height: 40px; font-size: 14px; color: #666;}
+.groupDiv .groupUl .groupTxt p em{ color: #999;}
+.groupDiv .groupList{ height: auto; margin-top: 12px;}
+.groupDiv .groupList li{ margin-bottom: 40px; width: 225px; height: auto; float: left; margin-right: 100px;}
+.groupDiv .groupList li a{ display: block; box-shadow: 0 0 12px #f2f2f2;}
+.groupDiv .groupList li a i{ display: block; width: 225px; height: 224px; overflow: hidden;}
+.groupDiv .groupList li h2{ margin-bottom: 0; width: auto; padding: 0 15px; margin-top: 15px;}
+.groupDiv .groupList li p{ padding: 0 15px; height: 36px; overflow: hidden; line-height: 36px; font-size: 12px; color: #999;}
+.groupDiv .groupList li a:hover{ box-shadow: 0 0 10px rgba(255,98,98,0.48);}
+.groupDiv .page{ padding-top: 10px;}
+/**********************投资者教育***********************/
+.investor{ height: auto;}
+.investor ul{ width: 100%; height: auto;}
+.investor ul li{ margin-bottom: 20px; background: url("../images/icon/ico20.png"/*tpa=http://www.djc888.com/home/img/ico20.png*/) 96% center no-repeat; padding: 15px 160px 25px 22px; box-shadow: 0 0 12px #f2f2f2;}
+.investor ul li a{ margin-bottom: 18px; display: block; line-height: 30px; font-size: 16px; color: #333;}
+.investor ul li p{ line-height: 20px; font-size: 14px; color: #999;}
+.investor .page{ padding-top: 30px;}
+.investor ul li:hover{ background: url("../images/icon/ico20_hov.png"/*tpa=http://www.djc888.com/home/img/ico20_hov.png*/) 96% center no-repeat;}
+/**********************投资者教育——视频***********************/
+.videoDiv{ height: auto;}
+.videoDiv ul{ width: 100%; height: auto;}
+.videoDiv ul li{ position: relative; margin-bottom: 30px; position: relative; width: 380px; margin-right: 30px; height: auto; float: left;}
+.videoDiv ul li a{ display: block; box-shadow: 0 0 12px #f2f2f2; font-size: 16px; color: #333;}
+.videoDiv ul li a i{ display: block; width: 100%; height: 240px; overflow: hidden;}
+.videoDiv ul li img{ display: block; width: 100%; height: 240px;}
+.videoDiv ul li p{ height: 74px; line-height: 74px; overflow: hidden; text-align: center;}
+.videoDiv ul li .cover{ position: absolute; top: 0; left: 0; width: 100%; height: 240px; background: url("../images/icon/back1.png"/*tpa=http://www.djc888.com/home/img/back1.png*/) repeat;}
+.videoDiv ul li .cover em{ position: absolute; left: 50%; margin-left: -20px; top: 50%; margin-top: -20px; display: block; width: 40px; height: 40px; background: url("../images/icon/ico21.png"/*tpa=http://www.djc888.com/home/img/ico21.png*/) no-repeat;}
+.videoDiv ul li a:hover .cover em{ background: url("../images/icon/ico21_hov.png"/*tpa=http://www.djc888.com/home/img/ico21_hov.png*/) repeat;}
+.videoDiv ul li a:hover{ color: #fd4040;}
+.videoDiv ul li embed{ display: block; width: 380px !important; height: 240px !important;}
+.videoDiv .page{ padding-top: 20px;}
+.videoDiv ul li video{width:100%; height:214;}
+.videoDiv ul li .coverdiv{position: absolute; left: 0; top: 0; width: 100%; height: 240px; background: url("../images/icon/back1.png"/*tpa=http://www.djc888.com/home/img/back1.png*/) repeat; opacity:0.3;filter:"alpha(opacity=30)"; -ms-filter:"alpha(opacity=50)"; }
+.videoDiv ul li .coverdiv a{position: absolute; left: 50%; top: 50%; margin-top: -20px; margin-left: -20px; display: block; width: 40px; height: 40px; box-shadow: 0 0 0; background: url("../images/icon/ico21.png"/*tpa=http://www.djc888.com/home/img/ico21.png*/) no-repeat;}
+.videoDiv ul li .coverdiv a:hover{ background: url("../images/icon/ico21_hov.png"/*tpa=http://www.djc888.com/home/img/ico21_hov.png*/) no-repeat;}
+.videoDiv ul li h3{ width: 100%; cursor: pointer; padding-top: 10px; height: 30px; line-height: 30px; font-size: 16px; color: #666; text-align: center; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.videoDiv ul li:hover h3{ color: #e7282b;}
+.deskDiv{display: none; width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: url("../images/icon/back0.png"/*tpa=http://www.djc888.com/home/img/back0.png*/) repeat; z-index: 200;}
+.videoLayer{ display: none; width: 660px; height: auto; padding: 40px 0 20px; background: #fff; border-radius: 5px; box-shadow: 5px 5px 8px rgba(0,0,0,0.85); position: absolute; left: 50%; margin-left: -330px; top: 0; z-index: 201;}
+.videoLayer video{ width: 100%; display: block;}
+.videoLayer .closeDiv{ width: 32px; height: 32px; display: block; background: url("../images/icon/close.png"/*tpa=http://www.djc888.com/home/img/close.png*/) no-repeat; position: absolute; right: 0; top: 0; cursor: pointer;-moz-transition: all 0.3s ease-in; -webkit-transition: all 0.3s ease-in; -o-transition: all 0.3s ease-in; transition: all 0.3s ease-in;}
+.videoLayer .closeDiv:hover{ transform:rotate(180deg); -ms-transform:rotate(180deg); -moz-transform:rotate(180deg); -webkit-transform:rotate(180deg); -o-transform:rotate(180deg); }
+
+/*总经理信箱*/
+.geneR ul{ width: 470px; height: auto; margin: 20px auto;}
+.geneR ul li{ width: 100%; margin-bottom: 30px; float: left; height: auto; position: relative;}
+.geneR ul li span{ width: 70px; overflow: hidden; display: block; float: left; height: 34px; line-height: 34px; font-size: 14px; color: #666666;}
+.geneR ul li .mailTxt{ float: left; width: 378px; padding: 6px 10px; border: 1px solid #ccc; border-radius: 3px; height: 20px; line-height: 20px; font-size: 12px; color: #bbb;}
+.geneR ul li .mailTxt1{ padding-right: 77px;width: 311px;}
+.geneR ul li textarea.mailTxt{ height: 180px;}
+.geneR ul li label{position: relative; padding-left: 22px; background: url("../images/icon/ico22.png"/*tpa=http://www.djc888.com/home/img/ico22.png*/) 0 center no-repeat; display: block; margin-right: 30px; float: left; height: 34px; line-height: 34px; font-size: 14px; color: #999;}
+.geneR ul li label input{ position: absolute; left: 0; top: 0; filter:alpha(opacity=0);opacity:0;}
+.geneR ul li label.on{  background: url("../images/icon/ico22_hov.png"/*tpa=http://www.djc888.com/home/img/ico22_hov.png*/) 0 center no-repeat; }
+.general .geneR ul li i{position: absolute; right: 2px; top: 2px; display: block; width: 66px; height: 30px;}
+.general .geneR ul li i img{ display: block;  width: 66px; height: 30px;}
+.geneR ul li .mailBut{ margin-top: 30px; width: 400px; cursor: pointer; float: right; background:url("../images/icon/back2.png"/*tpa=http://www.djc888.com/home/img/back2.png*/) repeat-y; text-align: center; -moz-transition: all 0.6s ease-in; -webkit-transition: all 0.6s ease-in; -o-transition: all 0.6s ease-in; transition: all 0.6s ease-in;}
