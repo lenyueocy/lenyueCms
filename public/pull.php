@@ -7,7 +7,7 @@
 $payload = json_decode(file_get_contents('php://input'), true);
 
 if(!$payload){
-    echo `cd /srv/www/blog && git pull origin master 2>&1`;
+    echo `cd /srv/www/fxgufen.cn && git pull origin master 2>&1`;
     echo '<br />';
     echo '<br />';
     echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />';
@@ -39,9 +39,12 @@ if(!$payload){
         $status = 'error';
         $msg = '哈哈哈，请求的数据为空.';
     }
+    if(!is_dir('/runtime/log/pull')){
+        mkdir('/runtime/log/pull');
+    }
     file_put_contents('/runtime/log/pull/pull.log','status：'.$status.' | Msg：'.$msg.' | 自动pull ------->time to '.date('Y-m-d H:i:s',time()).PHP_EOL.PHP_EOL,FILE_APPEND);
     if ($status == 'error')
         die($msg.' 于'.date('Y-m-d H:i:s', time()));
-    `cd /srv/www/blog && git pull origin master 2>&1`;
+    `cd /srv/www/fxgufen.cn && git pull origin master 2>&1`;
 }
 die("耶耶耶 触发并执行成功  于" . date('Y-m-d H:i:s', time()));
