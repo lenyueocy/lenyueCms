@@ -9,7 +9,7 @@ $root = request()->root();
 define('__ROOT__',str_replace('/index.php','',$root));
 return [
     // 应用调试模式
-    'app_debug'              => true,
+    'app_debug'              => false,
     // 视图
     'template'               => [
         'view_path'    => './template/'.get_system_value('site_theme').'/',

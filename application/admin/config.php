@@ -15,6 +15,7 @@ return [
     // 视图输出字符串内容替换
     'view_replace_str'       => [
         '__PUBLIC__' => __ROOT__.'/static/admin',
-        '__COMMON__' => __ROOT__.'/static/common'
+        '__COMMON__' => __ROOT__.'/static/common',
+        '__WAP__' => __ROOT__.'/static/wap'
     ],
 ];
