@@ -15,7 +15,7 @@ if(!$payload){
 }else{
     header("Content-type: text/html; charset=utf-8");
     // 本地仓库路径
-    $local = '/srv/www/blog';
+    $local = '/srv/www/fxgufen.cn';
     $token = '';
 
     $httpToken = isset($_SERVER['HTTP_X_GITLAB_TOKEN']) ? $_SERVER['HTTP_X_GITLAB_TOKEN'] : '';
