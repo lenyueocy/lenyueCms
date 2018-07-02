@@ -15,7 +15,7 @@ class Login extends Controller
         if (Session::has('userinfo')) {
             $this->redirect('index/index');
         }
-        return $this->fetch();
+        return $this->fetch('login_index');
     }
 
     //登录操作
