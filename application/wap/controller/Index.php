@@ -8,6 +8,6 @@ class Index extends Common
 {
     public function index()
     {
-        echo '你好';
+        echo 'Permission denied';
     }
 }

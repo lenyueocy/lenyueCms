@@ -126,7 +126,7 @@
 .rdzxTab .tab_box ul li h2{ float: left;}
 /*footer*/
 .footerDiv{ margin-top: 10px; width: 100%; height: auto; background: #333; min-width: 1200px;}
-.footer{ padding: 50px 0; height: auto; overflow: hidden;}
+.footer{ padding: 50px 0 32px 0; height: auto; overflow: hidden;}
 .footer .fooL{ width: 880px;}
 .footer .fooL ul{ width: 750px; height: auto; float: left;}
 .footer .fooL ul li{ width: 170px; margin-right: 17px; float: left;}
