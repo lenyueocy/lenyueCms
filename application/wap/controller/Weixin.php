@@ -21,4 +21,12 @@ class Weixin extends Common
         $template = $this->theme .'/wap/weixin_caifuauto.html';
         return $this->fetch($template);
     }
+    public function niugu(){
+        $template = $this->theme .'/wap/weixin_niugu.html';
+        return $this->fetch($template);
+    }
+    public function upstop(){
+        $template = $this->theme .'/wap/weixin_upstop.html';
+        return $this->fetch($template);
+    }
 }
