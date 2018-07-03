@@ -21,9 +21,9 @@
 					<li class="nLi {if $head_on == 'shortLineNuggets'}on{/if}">
 						<h3><a href="{:url('index/shortLineNuggets')}" >招商加盟</a></h3>
 					</li>
-					<li class="nLi {if $head_on == 'team'}on{/if}">
+					{if 0==1}<li class="nLi {if $head_on == 'team'}on{/if}">
 						<h3><a href="{:url('index/team')}" >投资团队</a></h3>
-					</li>
+					</li>{/if}
 					<li class="nLi {if $head_on == 'contact'}on{/if}">
 						<h3><a href="{:url('index/contact')}" >联系我们</a></h3>
 					</li>
