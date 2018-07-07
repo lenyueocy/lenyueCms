@@ -1469,4 +1469,24 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
         $this->initialize();
     }
 
+
+    //tpadmin  移植   by冷月
+    /**
+     * 获取当前模型的查询对象
+     * @access public
+     * @param bool      $buildNewQuery  创建新的查询对象
+     * @return Query
+     */
+    public function getQuery($buildNewQuery = false)
+    {
+        if ($buildNewQuery) {
+            return $this->buildQuery();
+        } elseif (!isset(self::$links[$this->class])) {
+            // 创建模型查询对象
+            self::$links[$this->class] = $this->buildQuery();
+        }
+
+        return self::$links[$this->class];
+    }
+
 }

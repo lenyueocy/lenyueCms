@@ -1,0 +1,114 @@
+*, :after, :before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+/*main{padding-top: 3em;}*/
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.draw {
+    width: 100%;
+    margin: 0 auto;
+    padding:10% ;
+    background-image: url(../images/weixin/choujiang/bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.draw table{
+    width: 98%;
+    /*height: 600px;*/
+    margin-left: 1%;
+}
+.draw .item {
+    position: relative;
+    /*width: 150px;*/
+    height: 105px;
+    background: url(../images/weixin/choujiang/bg1.png) no-repeat;
+    background-size:100% 100%;
+}
+
+.draw .item.active {
+    background-image: url(../images/weixin/choujiang/bg2.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.draw .img {
+    position: absolute;
+    top:10%;
+    display: table-cell;
+    width: 100%;
+    height: 61px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.draw .img img {
+    width: 80%;
+    vertical-align: top;
+}
+
+.draw .gap {
+    width: 5px;
+}
+
+.draw .gap-2 {
+    height: 5px;
+}
+
+.draw .name {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color:#f02d2f;
+}
+
+.draw .draw-btn {
+    display: block;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    background-image: url(../images/weixin/choujiang/bg3.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.divTop{
+    width: 100%;
+}
+.divTop img{
+    width: 100%;
+    display: block;
+}
+.mainBg{
+    background-image: url(../images/weixin/choujiang/main_bg.jpg);
+    background-size: 100% 100%;
+}
+.divBottom{
+    width: 100%;
+    height:80px;
+    background: url("../images/weixin/choujiang/bottom.jpg") no-repeat;
+}
+/*----------------  弹窗  ------------------*/
+.alert{
+    position: relative;
+}
+.alert-weixin{
+    position: absolute;
+}

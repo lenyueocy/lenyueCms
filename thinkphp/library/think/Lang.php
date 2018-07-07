@@ -25,8 +25,14 @@ class Lang
     protected static $langDetectVar = 'lang';
     // 语言Cookie变量
     protected static $langCookieVar = 'think_var';
+    // 语言Cookie的过期时间
+    protected static $langCookieExpire = 3600;
     // 允许语言列表
     protected static $allowLangList = [];
+    // Accept-Language转义为对应语言包名称 系统默认配置
+    protected static $acceptLanguage = [
+        'zh-hans-cn' => 'zh-cn',
+    ];
 
     // 设定当前的语言
     public static function range($range = '')

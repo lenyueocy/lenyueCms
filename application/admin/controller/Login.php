@@ -1,72 +1,67 @@
 <?php
-
 namespace app\admin\controller;
 
+use app\common\controller\Common;
 use think\Controller;
-use think\Db;
+use think\Loader;
 use think\Request;
+use think\Url;
 use think\Session;
+use think\Config;
 
-class Login extends Controller
+/**
+* 登录
+* @author aierui github  https://github.com/Aierui
+* @version 1.0 
+*/
+class Login extends Common
 {
-    //登录界面
-    function index(){
-        //验证是否登录成功
-        if (Session::has('userinfo')) {
-            $this->redirect('index/index');
-        }
-        return $this->fetch();
-    }
+	/**
+	 * 后台登录首页
+	 */
+	public function index()
+	{
+		if( Session::has('userinfo', 'admin') ) {
+			$this->redirect( url('admin/index/index') );
+		}
+		return view();
+	}
 
-    //登录操作
-    function login(){
-        $name = input('post.username');
-        $passwd = input('post.password');
-        $captcha = input('post.captcha');
+	/**
+	 * 登录验证
+	 */
+	public function doLogin()
+	{
+		if( !Request::instance()->isAjax() ) {
+			return $this->success('请求类型错误');
+		}
 
-        if (!$name || !$passwd) {
-            $this->error('用户名和密码不能为空！','login/index');
-        }
+		$postData = input('post.');
+		$captcha = $postData['captcha'];
+		if(!captcha_check($captcha)){
+			return $this->error('验证码错误');
+		};
+		$loginData = array(
+			'mobile'=>$postData['mobile'],
+			'password'=>$postData['password']
+		);
+		$ret = Loader::model('User')->login( $loginData );
 
-        if(!captcha_check($captcha)){
-            $this->error('请输入正确的验证码！','login/index');
-        }
+		if ($ret['code'] !== 1) {
+			return $this->error( $ret['msg'] );
+		}
+		unset($ret['data']['password']);
+		Session::set('userinfo', $ret['data'], 'admin');
+		Loader::model('LogRecord')->record( lang('Login succeed') );
+		return $this->success($ret['msg'], url('admin/index/index'));
+	}
 
-        $info = Db::name('admin')->where('username',$name)->find();
-        $md5_passwd = md5(md5(trim($passwd)).$info['encrypt']);
-
-        if (!$info || $md5_passwd != $info['password']) {
-            $this->error( '用户名或密码错误，请重新输入！','login/index');
-        }
-
-        if ($info['islock'] != 0) {
-            $this->error( '您的账户暂时已锁定，请联系管理员！','login/index');
-        }
-
-        //写入日志
-        $data['ip'] = $login['loginip'] = request()->ip();
-        $data['userid'] = $info['id'];
-        $data['datetime'] = $login['logintime'] = time();
-        Db::name('log')->insert($data);
-        Db::name('admin')->where('id',$info['id'])->update($login);
-
-        //登入成功，存入session
-        Session::set('userinfo',['name' => $name,'id' => $info['id'],'login_time' => time()]);
-        $this->success('登录成功','Index/index');
-
-    }
-
-    //退出
-    function logout(){
-        Session::clear();
-        $this->success('退出成功','login/index');
-    }
-
-    /*
-     * 空操作
-     */
-    public function _empty()
-    {
-        $this->redirect('login/index');
-    }
+	/**
+	 * 退出登录
+	 */
+	public function out()
+	{
+		session::clear('admin');
+		return $this->success('退出成功！', url('admin/login/index'));
+	}
 }

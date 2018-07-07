@@ -29,4 +29,8 @@ class Weixin extends Common
         $template = $this->theme .'/wap/weixin_upstop.html';
         return $this->fetch($template);
     }
+    public function choujiang(){
+        $template = $this->theme .'/wap/weixin_choujiang.html';
+        return $this->fetch($template);
+    }
 }
