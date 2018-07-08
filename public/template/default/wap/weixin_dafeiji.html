@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小小打飞机</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/dafeiji.css">
+</head>
+<body>
+<div id="contentdiv">
+    <div id="startdiv">
+        <p class="tiaozhan1w">挑战 <b class="onewfen">10000</b> 分</p>
+        <button onclick="begin()">开始游戏</button>
+    </div>
+    <div id="maindiv">
+        <div id="scorediv">
+            <label>分数：</label>
+            <label id="label">0</label>
+        </div>
+        <div id="scorediv">
+            <label>分数：</label>
+            <label id="label">0</label>
+        </div>
+        <div id="suspenddiv">
+            <button>继续</button><br/>
+            <button>重新开始</button><br/>
+            <button>回到主页</button>
+        </div>
+        <div id="enddiv">
+            <p class="plantext">飞机大战分数</p>
+            <p id="planscore">0</p>
+            <div><button onclick="jixu()">继续</button></div>
+        </div>
+        <div id="fuhuoDiv">
+            <p>很遗憾，您阵亡了</p>
+            <p>长按二维码关注公众号可以获取一次复活机会</p>
+            <img width="100" height="100" src="__PUBLIC__/images/weixin/dafeiji/weixin.jpg">
+            <div><button onclick="zanting('over')">复活</button></div>
+            <div><button onclick="overCount()">阵亡</button></div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/dafeiji.js"></script>
+</body>
+</html>

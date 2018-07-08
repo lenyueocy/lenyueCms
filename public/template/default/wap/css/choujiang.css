@@ -111,4 +111,7 @@ table {
 }
 .alert-weixin{
     position: absolute;
+    left: 27.7%;
+    top: 34.5%;
+    width: 44%;
 }
