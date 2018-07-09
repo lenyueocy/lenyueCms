@@ -1,5 +1,5 @@
 <?php
-namespace app\common\controller;
+namespace application\common\controller;
 
 
 use think\Config;

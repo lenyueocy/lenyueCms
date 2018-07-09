@@ -1,5 +1,5 @@
 <?php
-namespace app\wap\controller;
+namespace application\wap\controller;
 
 use think\Config;
 use think\Db;

@@ -1,5 +1,5 @@
 <?php
-namespace app\admin\model;
+namespace application\admin\model;
 
 use \think\Config;
 use \think\Model;
@@ -22,7 +22,7 @@ class logRecord extends Admin
      */
     protected function setIpAttr()
     {
-        return \app\common\tools\Visitor::getIP();
+        return \application\common\tools\Visitor::getIP();
     }
 
     /**
@@ -30,7 +30,7 @@ class logRecord extends Admin
      */
     protected function setBrowserAttr()
     {
-        return \app\common\tools\Visitor::getBrowser().'-'.\app\common\tools\Visitor::getBrowserVer();
+        return \application\common\tools\Visitor::getBrowser().'-'.\application\common\tools\Visitor::getBrowserVer();
     }
 
     /**
@@ -38,7 +38,7 @@ class logRecord extends Admin
      */
     protected function setOsAttr()
     {
-        return \app\common\tools\Visitor::getOs();
+        return \application\common\tools\Visitor::getOs();
     }
 
     /**

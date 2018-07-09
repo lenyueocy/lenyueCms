@@ -6,7 +6,7 @@
  * Time: 9:58
  */
 
-namespace app\common\taglib;
+namespace application\common\taglib;
 
 use think\template\TagLib;
 use think\Db;

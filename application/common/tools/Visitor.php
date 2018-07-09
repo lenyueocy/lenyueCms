@@ -1,5 +1,5 @@
 <?php
-namespace app\common\tools;
+namespace application\common\tools;
 
 /**
  * 获取受访者信息

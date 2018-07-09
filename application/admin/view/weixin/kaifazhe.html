@@ -1,0 +1,76 @@
+<!-- Data Tables -->
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins" style="background: white;padding: 10px">
+                <!-- 表单标题概要 -->
+                <div class="ibox-title">
+                    <h5>微信开发者配置信息</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 表单内容 -->
+                <div class="ibox-content">
+
+                    <div class="site-text">
+                        <form class="layui-form layui-form-pane" action="">
+                            <input type="hidden" name="id" value="{if isset($data.id)}{$data.id}{/if}" >
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">AppID</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="appid" value="{if isset($data.appid)}{$data.appid}{/if}" required="" lay-verify="required" placeholder="请输入开发者ID" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">获取方式：微信开发者平台 -> 基本配置 -> appid</div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">AppSecret</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="appsecret" value="{if isset($data.appsecret)}{$data.appsecret}{/if}" required="" lay-verify="required" placeholder="请输入AppSecret" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">获取方式：微信开发者平台 -> 基本配置 -> AppSecret</div>
+                            </div>
+
+
+                            <div class="layui-form-item">
+                                <button class="layui-btn" lay-submit="" lay-filter="formDemoPane">立即提交</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    layui.use(['layer', 'form'], function(){
+        var layer = layui.layer
+            ,form = layui.form;
+        form.render();
+        //监听提交
+        form.on('submit', function(data){
+            $.post("{:url('/admin/WeixinDeveloper/add')}",data.field,function(res){
+                var res = $.parseJSON(res);
+                if(res.status == 'success'){
+                    layer.msg(res.msg, {icon:1,time: 2000},function(){location.reload();});
+                }else{
+                    layer.msg(res.msg, {icon:2,time:2000});
+                }
+            },'json');
+            return false;
+        });
+    });
+</script>

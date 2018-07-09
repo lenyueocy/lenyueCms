@@ -1,5 +1,5 @@
 <?php
-namespace app\common\validate;
+namespace application\common\validate;
 
 use \think\Db;
 

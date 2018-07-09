@@ -1,5 +1,5 @@
 <?php
-namespace app\admin\controller;
+namespace application\admin\controller;
 
 use think\Controller;
 use think\Loader;

@@ -15,8 +15,8 @@ return [
         'view_path'    => './template/'.get_system_value('site_theme').'/',
         'view_depr'    => '_',
         // 预先加载的标签库
-        'taglib_pre_load'     =>    'app\common\taglib\Tag',
-        'taglib_build_in'     =>    'app\common\taglib\Tag,cx',
+        'taglib_pre_load'     =>    'application\common\taglib\Tag',
+        'taglib_build_in'     =>    'application\common\taglib\Tag,cx',
     ],
     // 视图输出字符串内容替换
     'view_replace_str'       => [

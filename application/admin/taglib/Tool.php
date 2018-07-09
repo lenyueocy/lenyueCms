@@ -1,5 +1,5 @@
 <?php
-namespace app\admin\taglib;
+namespace application\admin\taglib;
 
 use think\template\TagLib;
 use think\Request;

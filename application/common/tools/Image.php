@@ -1,5 +1,5 @@
 <?php
-namespace app\common\tools;
+namespace application\common\tools;
 
 /**
  * ------------------------------------------

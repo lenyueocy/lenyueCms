@@ -1,7 +1,7 @@
 <?php
-namespace app\admin\controller;
+namespace application\admin\controller;
 
-use app\common\controller\Common;
+use application\common\controller\Common;
 use think\Controller;
 use think\Loader;
 use think\Request;

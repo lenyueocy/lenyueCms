@@ -339,7 +339,6 @@ class App
 
         // 监听module_init
         Hook::listen('module_init', $request);
-
         try {
             $instance = Loader::controller($controller, $config['url_controller_layer'], $config['controller_suffix'], $config['empty_controller']);
             if (is_null($instance)) {

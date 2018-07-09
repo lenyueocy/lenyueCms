@@ -23,49 +23,38 @@
     {js href="__JS__/jquery.validate.min.js" /}
 </head>
 
-<body class="gray-bg">
+<body class="gray-bg" style="background-image: url('__IMG__/login_bg.jpeg')">
 
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
-                <h1 class="logo-name">RED</h1>
+                <h1 class="logo-name" style="transform: translate(-30%,0)">admin</h1>
             </div>
-            <h3>Welcome to RED</h3>
-            <!-- <p>Perfectly designed,Simplicity,Useful,Free.
-            </p>
-            <p>Login in. To see it in action.</p> -->
+            <h3>管理员登录</h3>
 
-			<!-- <a class="right-sidebar-toggle" href="#">
-                <i class="fa fa-tasks"></i>
-            </a> -->
-            
             <form class="m-t" id="login-form-hooks" onsubmit="return false;">
             	<div class="msgerr" style="color: #e15f63;text-align: left;"></div>
                 <div class="form-group">
-                    <input id="mobile" name="mobile" class="form-control" placeholder="Moblie" maxlength="11" value="13330613321" required="">
+                    <input id="mobile" name="mobile" class="form-control" placeholder="手机号码" maxlength="11"  required="">
                 </div>
                 <div class="form-group">
-                    <input id="password" name="password" type="password"  class="form-control" placeholder="Password" rangelength="[6,16]" value="123456">
+                    <input id="password" name="password" type="password"  class="form-control" placeholder="密码" rangelength="[6,16]" >
                 </div>
 
                 <div class="form-group">
-                    <input id="captcha" name="captcha" type="text"  class="form-control" placeholder="Captcha" required="">
+                    <input id="captcha" name="captcha" type="text"  class="form-control" placeholder="验证码" required=""  autocomplete="off">
                 </div>
 
                 <div class="form-group" style="float: left;">
                     <img id="captchaimg" src="{:captcha_src()}" alt="{:lang('Captcha')}" width="130" height="38" class="verify refcaptcha">
-                    <span style="width: 100px;padding-left: 10px" class="refcaptcha">{:lang('Click On The Image Change One')}</span>
+                    <span style="width: 100px;padding-left: 10px" class="refcaptcha">看不清？换一张</span>
                 </div>
-
                 <button id="sub-login" type="submit" class="btn btn-primary block full-width m-b">{:lang('Login')}</button>
 
                <!--  <a href="#"><small>Forgot password?</small></a>
                 <p class="text-muted text-center"><small>Do not have an account?</small></p>
                 <a class="btn btn-sm btn-white btn-block" href="#">Create an account</a> -->
             </form>
-
-            <p class="m-t"> <small>Tp-admin framework base on Bootstrap 3 &copy; 2016</small> </p>
-            <p class="m-t"> <small>Thank you very much Inspinia's theme.</small> </p>
         </div>
     </div>
 

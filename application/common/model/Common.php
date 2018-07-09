@@ -1,5 +1,5 @@
 <?php
-namespace app\common\model;
+namespace application\common\model;
 
 
 use think\Config;

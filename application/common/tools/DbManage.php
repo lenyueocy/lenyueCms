@@ -1,5 +1,5 @@
 <?php
-namespace app\common\tools;
+namespace application\common\tools;
 
 use \think\Config;
 use \think\Db;

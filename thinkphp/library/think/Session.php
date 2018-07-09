@@ -155,6 +155,7 @@ class Session
     public static function get($name = '', $prefix = null)
     {
         empty(self::$init) && self::boot();
+
         $prefix = !is_null($prefix) ? $prefix : self::$prefix;
         if ('' == $name) {
             // 获取全部的session

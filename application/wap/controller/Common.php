@@ -1,6 +1,6 @@
 <?php
 
-namespace app\wap\controller;
+namespace application\wap\controller;
 
 use think\Controller;
 use think\Db;

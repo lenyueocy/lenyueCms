@@ -29,8 +29,8 @@ return [
         'layout_name' => 'layout',
         // 模板后缀
         // 'view_suffix'  => 'html',
-        'taglib_pre_load' => 'think\template\taglib\Cx,app\admin\taglib\Tool',
-        'taglib_build_in' => 'think\template\taglib\Cx,app\admin\taglib\Tool',
+        'taglib_pre_load' => 'think\template\taglib\Cx,application\admin\taglib\Tool',
+        'taglib_build_in' => 'think\template\taglib\Cx,application\admin\taglib\Tool',
     ],
     //缓存
     'cache' => [
@@ -63,7 +63,8 @@ return [
         '__CSS__' => STATIC_PATH . 'admin/css',
         '__JS__' => STATIC_PATH . 'admin/js',
         '__IMG__' => STATIC_PATH . 'admin/images',
-        '__LIB__' => STATIC_PATH . 'admin/lib'
+        '__LIB__' => STATIC_PATH . 'admin/lib',
+        '__LAYUI__' => STATIC_PATH . 'admin/layui'
     ],
 
     //验证码

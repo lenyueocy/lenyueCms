@@ -1,13 +1,13 @@
 <?php
-namespace app\admin\controller;
+namespace application\admin\controller;
 
-use app\common\controller\Common;
+use application\common\controller\Common;
 use think\Controller;
 use think\Loader;
 use think\Session;
 use think\Request;
 use think\Url;
-use app\common\tools;
+use application\common\tools;
 
 
 /**
@@ -29,14 +29,18 @@ class Admin extends Common
 		if( !Session::has('userinfo', 'admin') ) {
 			$this->error('Please login first', url('admin/Login/index'));
 		}
+
 		$userRow = Session::get('userinfo', 'admin');
+
+
 		//验证权限
 		$request = Request::instance();
 		$rule_val = $request->module().'/'.$request->controller().'/'.$request->action();
+
 		$this->uid = $userRow['id'];
 		$this->role_id = $userRow['role_id'];
 		if($userRow['administrator']!=1 && !$this->checkRule($this->uid, $rule_val)) {
-			$this->error(lang('Without the permissions page'));
+			$this->error('无该页面权限');
 		}
 	}
 

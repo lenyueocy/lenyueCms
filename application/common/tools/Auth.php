@@ -1,7 +1,7 @@
 <?php
-namespace app\common\tools;
+namespace application\common\tools;
 
-use app\admin\model\User;
+use application\admin\model\User;
 use \think\Db;
 use think\Model;
 
