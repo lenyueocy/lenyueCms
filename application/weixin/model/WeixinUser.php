@@ -18,25 +18,33 @@ class WeixinUser extends Model
             'updatetime' => time(),
             'ip' => request()->ip(),
         ];
-        echo "<pre>";
-        print_r(['openid'=>$saveData['openid']]);
-        exit;
+
         $data = model('weixin_user')->where(['openid'=>$saveData['openid']])->select();
-        echo "<pre>";
-        print_r($data);
-        exit;
+
         if (!empty($data)){
-            $this->edit($saveData);
+            $result = $this->edit($saveData);
         }else{
-            $this->add($saveData);
+            $result = $this->add($saveData);
         }
+        echo "<pre>";
+        print_r($result);
+        exit;
     }
     public function add($saveData){
         $result = model('weixin_user')->save($saveData);
         return $result;
     }
     public function edit($saveData){
-        $result = model('weixin_user')->update($saveData);
+        $savedata = [
+            'nickname' =>$saveData['nickname'],
+            'country' =>$saveData['country'],
+            'province' =>$saveData['province'],
+            'city' =>$saveData['city'],
+            'headimgurl' =>$saveData['headimgurl'],
+            'updatetime' =>time(),
+            'ip' =>$saveData['ip'],
+        ];
+        $result = model('weixin_user')->update($savedata,['openid'=>$saveData['openid']]);
         return $result;
     }
 }
