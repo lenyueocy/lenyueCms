@@ -50,7 +50,7 @@ class Login extends Common
             }
             $this->setWeixinLogin($data['openid']);
         echo "<pre>";
-        print_r($_SESSION);
+        print_r($_SESSION['weixin']['openid']);
         exit;
             $access_token = $data['access_token'];
             Cache::set('access_token', $access_token,7200);
