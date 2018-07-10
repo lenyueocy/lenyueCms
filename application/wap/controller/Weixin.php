@@ -18,6 +18,9 @@ class Weixin extends Common
             $template = $this->theme .'/wap/weixin_index.html';
         return $this->fetch($template);
     }
+    public function checkoutLogin(){
+        //检测登录
+    }
     public function min5(){
         $template = $this->theme .'/wap/weixin_5min.html';
         return $this->fetch($template);
