@@ -40,7 +40,7 @@ class Weixin extends Common
     }
     public function dafeiji(){
         $model = new WeixinBind();
-        $data = $model->table('admin_Weixin_bind')->find();
+        $data = $model->table('admin_weixin_bind')->find();
         $this->assign('data',$data);
         $template = $this->theme .'/wap/weixin_dafeiji.html';
         return $this->fetch($template);
