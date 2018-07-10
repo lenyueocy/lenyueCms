@@ -12,6 +12,7 @@ class Login extends Common
 {
     public $appid;
     public $appsecret;
+    public $access_token;
     public function _initialize()
     {
         parent::_initialize();
@@ -27,26 +28,36 @@ class Login extends Common
     }
     public function callback(){
         $code = $_GET['code'];
-
-        if(Cache::get('access_token') ==1){
-            $access_token = Cache::get('access_token');
-        }else {
-            $access_tokenData = $this->access_token($code);
-            if(isset($access_tokenData['errcode'])){
-                $this->echoError();
-            }
-            Cache::set('access_token', $access_tokenData['access_token'], $access_tokenData['expires_in']);
-            $access_token = $access_tokenData['access_token'];
-        }
-
-
+        $access_token = $this->access_token($code);
+        $userinfo = $this->getUserinfo();
     }
     public function access_token($code){
-        $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->appsecret."&code=".$code."&grant_type=authorization_code";
-        $data = Curl::get($url);
-        return json_decode($data,true);
+        if(Cache::get('access_token')){
+            $access_token = Cache::get('access_token');
+        }else {
+            $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->appid . "&secret=" . $this->appsecret . "&code=" . $code . "&grant_type=authorization_code";
+            $data = Curl::get($url);
+            $data = json_decode($data, true);
+            if(isset($data['errcode'])){
+                $this->echoError();
+            }
+            $this->setLogin($data['openid']);
+            $access_token = $data['access_token'];
+            Cache::set('access_token', $access_token,7200);
+        }
+        $this->access_token = $access_token;
+        return $access_token;
     }
-    public function setLogin(){
+    public function getUserinfo(){
+        $url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$this->access_token."&openid=OPENID&lang=zh_CN";
+        $userinfo = Curl::get($url);
+        $userinfo = json_decode($userinfo,true);
+        echo "<pre>";
+        print_r($userinfo);
+        exit;
+    }
+
+    public function setLogin($openid){
 
     }
     //统一界面输出错误信息
@@ -55,7 +66,7 @@ class Login extends Common
         echo <<<error
         <html>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
-</html>
+        </html>
         <script type="text/javascript" src="/static/admin/layer_mobile/layer.js"></script>
 	    <link rel="stylesheet" type="text/css" href="/static/admin/layer_mobile/need/layer.css" >
         <script>
