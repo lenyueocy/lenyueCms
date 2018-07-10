@@ -65,7 +65,6 @@ class Login extends Common
                     shadeClose: false,
                     yes: function(){
                         location.href = "{$url}";
-                    });
                     }
                 });
         </script>
