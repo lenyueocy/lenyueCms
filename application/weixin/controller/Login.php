@@ -51,6 +51,7 @@ class Login extends Common
     }
     //统一界面输出错误信息
     public function echoError(){
+        $url = url('/wap/weixin/dafeiji');
         echo <<<error
         <script type="text/javascript" src="/static/admin/layui/layui.js"></script>
 	    <link rel="stylesheet" type="text/css" href="/static/admin/layui/css/layui.mobile.css" />
@@ -58,14 +59,12 @@ class Login extends Common
             layui.use(['layer', 'form'], function(){
                 var layer = layui.layer
                     ,form = layui.form;
-                layer.msg('出现错误啦',{icon:2,time:2000});
+                layer.msg('出现错误啦',{icon:2,time:2000},function() {
+                    location.href = "{$url}";
+                });
             });
         </script>
 error;
         exit;
-
-        /*$this->assign('data',['msg'=>'出现错误啦','act'=>$act]);
-        $this->fetch('echoerror');
-        exit;*/
     }
 }
