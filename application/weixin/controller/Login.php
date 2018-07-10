@@ -33,7 +33,7 @@ class Login extends Common
     }
     public function access_token($code){
         $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->appsecret."&code=".$code."&grant_type=authorization_code";
-        $access_token = Curl::get($url);
-        return $access_token;
+        $data = Curl::get($url);
+        return json_decode($data);
     }
 }
