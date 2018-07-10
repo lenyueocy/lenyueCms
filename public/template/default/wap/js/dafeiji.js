@@ -457,9 +457,18 @@ function overCount(){
      }
 }
 function updateScore(){
-    var url = "{:url('weixin')}";
-    $.post(url,{score:scores},function (res) {
-        alert(res)
+    $.post(scoresUrl,{scores:scores},function (res) {
+        var res = $.parseJSON(res);
+        if(res.status == 'error'){
+            layer.open({
+                content: res.msg,
+                btn: '继续加油',
+                shadeClose: false,
+                yes: function(){
+                    location.reload();
+                }
+            });
+        }
     });
 }
 

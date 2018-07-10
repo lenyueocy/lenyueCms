@@ -4,6 +4,7 @@ namespace application\wap\controller;
 
 use application\admin\model\WeixinBind;
 use application\weixin\model\WeixinUser;
+use application\weixin\model\WeixinScores;
 use think\Controller;
 use think\model;
 use think\Db;
@@ -46,6 +47,7 @@ class Weixin extends Common
         session_start();
         $model = new WeixinBind();
         $WeixinUserModel = new WeixinUser();
+        $WeixinScoresModel = new WeixinScores();
         $data = $model->table('admin_weixin_bind')->find();
 
         $is_login = isset($_SESSION['weixin']['openid'])?1:0;
@@ -53,6 +55,14 @@ class Weixin extends Common
         if ($is_login){
             $userinfo = $WeixinUserModel->getRow(['openid'=>$_SESSION['weixin']['openid']]);
             $this->assign('userinfo',$userinfo);
+            $scoresData = $WeixinScoresModel->getRow(['openid'=>$_SESSION['weixin']['openid']]);
+            if(empty($scoresData)){
+                $scoresData = [
+                    'scores' => 0,
+                    'money' => 0,
+                ];
+            }
+            $this->assign('scores',$scoresData);
         }
 
         $this->assign('data',$data);
