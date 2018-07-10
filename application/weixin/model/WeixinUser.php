@@ -6,7 +6,7 @@ use think\Model;
 class WeixinUser extends Model
 {
     public function getRow($filter){
-        $data = model('weixin_user')->where($filter)->find();
+        $data = $this->db('weixin_user')->where($filter)->find();
         return $data;
     }
     public function saveUserinfo($data){
@@ -22,7 +22,6 @@ class WeixinUser extends Model
             'updatetime' => time(),
             'ip' => request()->ip(),
         ];
-
         $data = model('weixin_user')->where(['openid'=>$saveData['openid']])->select();
 
         if (!empty($data)){

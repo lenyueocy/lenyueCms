@@ -39,9 +39,9 @@ class Login extends Common
     }
 
     public function access_token($code){
-        if(Cache::get('access_token')){
-            $access_token = Cache::get('access_token');
-        }else {
+//        if(Cache::get('access_token')){
+//            $access_token = Cache::get('access_token');
+//        }else {
             $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->appid . "&secret=" . $this->appsecret . "&code=" . $code . "&grant_type=authorization_code";
             $data = Curl::get($url);
             $data = json_decode($data, true);
@@ -50,8 +50,8 @@ class Login extends Common
             }
             $this->setWeixinLogin($data['openid']);
             $access_token = $data['access_token'];
-            Cache::set('access_token', $access_token,7200);
-        }
+//            Cache::set('access_token', $access_token,7200);
+//        }
         $this->access_token = $access_token;
         return $access_token;
     }
@@ -59,6 +59,9 @@ class Login extends Common
         $url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$this->access_token."&openid=OPENID&lang=zh_CN";
         $userinfo = Curl::get($url);
         $userinfo = json_decode($userinfo,true);
+        if(isset($userinfo['errcode'])){
+            $this->echoError();
+        }
         return $userinfo;
     }
     public function saveUser($userinfo){

@@ -12,9 +12,9 @@
 <div id="contentdiv">
     <div id="startdiv">
         {if isset($userinfo)}
-            <div class="weixin-user">
-                <img width="100" height="100" src="{$userinfo['headimgurl']}">
-                <div>{$userinfo['nickname']}</div>
+            <div class="weixin-user" style="width: 50%;float: left;margin: 10px 0 0 10px;">
+                <img style="float: left;border-radius: 50%;" width="50" height="50" src="{$userinfo['headimgurl']}">
+                <div style="float: left;margin-left:10px;line-height: 50px;color: #686a6b;font-weight: bold;text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;">{$userinfo['nickname']}</div>
             </div>
         {/if}
         <p class="tiaozhan1w">挑战 <b class="onewfen">10000</b> 分</p>

@@ -395,6 +395,7 @@ function start(){
                   if(enemys[j].imagenode.offsetTop+enemys[j].plansizeY>=selfplan.imagenode.offsetTop+40&&enemys[j].imagenode.offsetTop<=selfplan.imagenode.offsetTop-20+selfplan.plansizeY){
                       //碰撞本方飞机，游戏结束，统计分数
                       selfplan.imagenode.src="/template/default/wap/images/weixin/dafeiji/本方飞机爆炸.gif";
+                      updateScore();
                       zanting('over');
                       return;
                   }
@@ -454,6 +455,12 @@ function overCount(){
          mainDiv.detachEvent("ontouchstart",yidong);
          bodyobj.removeEventListener("touchstart",bianjie,true);
      }
+}
+function updateScore(){
+    var url = "{:url('weixin')}";
+    $.post(url,{score:scores},function (res) {
+        alert(res)
+    });
 }
 
 /*
