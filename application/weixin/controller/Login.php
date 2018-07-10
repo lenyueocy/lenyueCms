@@ -30,7 +30,9 @@ class Login extends Common
         $code = $_GET['code'];
         $access_token = $this->access_token($code);
         $userinfo = $this->getUserinfo();
+        $result = $this ->saveUser($userinfo);
     }
+
     public function access_token($code){
         if(Cache::get('access_token')){
             $access_token = Cache::get('access_token');
@@ -52,13 +54,11 @@ class Login extends Common
         $url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$this->access_token."&openid=OPENID&lang=zh_CN";
         $userinfo = Curl::get($url);
         $userinfo = json_decode($userinfo,true);
-        echo "<pre>";
-        print_r($userinfo);
-        exit;
+        return $userinfo;
     }
-
-    public function setLogin($openid){
-
+    public function saveUser($userinfo){
+        $result = model('weixinUser')->saveUserinfo($userinfo);
+        return $result;
     }
     //统一界面输出错误信息
     public function echoError(){
