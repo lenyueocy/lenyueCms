@@ -44,7 +44,7 @@ class WeixinUser extends Model
             'updatetime' =>time(),
             'ip' =>$saveData['ip'],
         ];
-        $result = model('weixin_user')->update($savedata,['openid'=>$saveData['openid']]);
+        $result = model('weixin_user')->where(['openid'=>$saveData['openid']])->update($savedata);
         return $result;
     }
 }
