@@ -54,6 +54,9 @@ class Login extends Common
         $url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$this->access_token."&openid=OPENID&lang=zh_CN";
         $userinfo = Curl::get($url);
         $userinfo = json_decode($userinfo,true);
+        echo "<pre>";
+        print_r($userinfo);
+        exit;
         return $userinfo;
     }
     public function saveUser($userinfo){
