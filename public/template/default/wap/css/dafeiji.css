@@ -156,3 +156,16 @@ button{
     border: 1px solid gray;
     border-radius: 30px;
 }
+
+#overDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*border: 1px solid gray;*/
+    /*border-radius: 5px;*/
+    text-align: center;
+    /*background-color:#d7ddde;*/
+    transform:translate(-50%,-50%);
+    display: block;
+    z-index: 2;
+}

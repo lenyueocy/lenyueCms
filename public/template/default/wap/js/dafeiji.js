@@ -13,7 +13,7 @@ var enddiv=document.getElementById("enddiv");
     //获得游戏结束后分数统计界面
 var planscore=document.getElementById("planscore");
     //获得游戏结束后分数统计界面
-var fuhuoDiv=document.getElementById("fuhuoDiv");
+var overDiv=document.getElementById("overDiv");
     //初始化分数
 var scores=0;
     //本方飞机生命条数
@@ -172,7 +172,7 @@ var number=0;
 var zanting=function(type){
     if(type == 'over'){
         if(number == 0 ) {
-            fuhuoDiv.style.display = 'block';
+            overDiv.style.display = 'block';
             if (document.removeEventListener) {
                 mainDiv.removeEventListener("touchstart", yidong, true);
                 bodyobj.removeEventListener("touchstart", bianjie, true);
@@ -184,7 +184,7 @@ var zanting=function(type){
             clearInterval(set);
             number = 1;
         }else{
-            fuhuoDiv.style.display = "none";
+            overDiv.style.display = "none";
             if (document.addEventListener) {
                 mainDiv.addEventListener("touchstart", yidong, true);
                 bodyobj.addEventListener("touchstart", bianjie, true);
