@@ -20,7 +20,9 @@ class WeixinUser extends Model
         ];
 
         $data = model('weixin_user')->where(['openid'=>$saveData['openid']])->select();
-
+        echo "<pre>";
+        print_r($data);
+        exit;
         if (!empty($data)){
             $result = $this->edit($saveData);
         }else{
