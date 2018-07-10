@@ -28,7 +28,7 @@ class Login extends Common
     public function callback(){
         $code = $_GET['code'];
 
-        if(Cache::get('access_token')){
+        if(Cache::get('access_token') ==1){
             $access_token = Cache::get('access_token');
         }else {
             $access_tokenData = $this->access_token($code);
