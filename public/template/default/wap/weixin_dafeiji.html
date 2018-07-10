@@ -46,6 +46,7 @@
 <script type="text/javascript" src="__PUBLIC__/js/dafeiji.js"></script>
 <script>
     $(function(){
+        var redirect_uri = "{if $data.}";
         location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf1b35fc53dc1cf55&redirect_uri=http://fxgufen.lenyue.top/wap/weixin&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     });
 </script>

@@ -34,12 +34,14 @@ class WeixinDeveloper extends Admin
      */
     public function getList()
     {
-        if(!request()->isAjax()) {
-            $this->error('请求错误', 4001);
-        }
-
         $request = request()->param();
         $data = model('User')->getList( $request );
+        return $data;
+    }
+
+    public function getRow()
+    {
+        $data = model('WeixinBind')->find();
         return $data;
     }
 

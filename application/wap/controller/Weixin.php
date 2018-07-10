@@ -2,8 +2,13 @@
 namespace application\wap\controller;
 
 
+use application\admin\model\WeixinBind;
 use think\Controller;
+use think\model;
+use think\Db;
 use think\Request;
+use think\Session;
+use think\Config;
 class Weixin extends Common
 {
     public function index(){
@@ -34,6 +39,9 @@ class Weixin extends Common
         return $this->fetch($template);
     }
     public function dafeiji(){
+        $model = new WeixinBind();
+        $data = $model->table('admin_Weixin_bind')->find();
+        $this->assign('data',$data);
         $template = $this->theme .'/wap/weixin_dafeiji.html';
         return $this->fetch($template);
     }
