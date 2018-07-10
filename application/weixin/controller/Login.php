@@ -2,6 +2,7 @@
 namespace application\weixin\controller;
 
 use application\admin\model\WeixinBind;
+use think\Cache;
 use think\Config;
 use think\Curl;
 use think\Db;
@@ -26,14 +27,34 @@ class Login extends Common
     }
     public function callback(){
         $code = $_GET['code'];
-        $access_token = $this->access_token($code);
-        echo "<pre>";
-        print_r($access_token);
-        exit;
+
+        if(Cache::get('access_token')){
+            $access_token = Cache::get('access_token');
+        }else {
+            $access_tokenData = $this->access_token($code);
+            if($access_tokenData['errcode']){
+                $this->echoError();
+            }
+            Cache::set('access_token', $access_tokenData['access_token'], $access_tokenData['expires_in']);
+            $access_token = $access_tokenData['access_token'];
+        }
+
+
     }
     public function access_token($code){
         $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->appsecret."&code=".$code."&grant_type=authorization_code";
         $data = Curl::get($url);
-        return json_decode($data);
+        return json_decode($data,true);
+    }
+    public function setLogin(){
+
+    }
+    //同意界面输出错误信息
+    public function echoError(){
+        echo <<<error
+        <script>alert(1);</script>
+error;
+        exit;
+
     }
 }
