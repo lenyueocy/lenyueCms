@@ -67,6 +67,7 @@ class Login extends Common
     }
 
     public function setWeixinLogin($openid){
+        session_start();
         $_SESSION['weixin']['openid'] = $openid;
     }
 
