@@ -1,7 +1,10 @@
 <?php
-namespace app\weixin\controller;
+namespace application\wap\controller;
 
-class Index
+use think\Config;
+use think\Db;
+use think\View;
+class Index extends Common
 {
     public function index()
     {
