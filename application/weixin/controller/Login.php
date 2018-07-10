@@ -39,7 +39,7 @@ class Login extends Common
     }
 
     public function access_token($code){
-        if(Cache::get('access_token')){
+        if(Cache::get('access_token') == 1){
             $access_token = Cache::get('access_token');
         }else {
             $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->appid . "&secret=" . $this->appsecret . "&code=" . $code . "&grant_type=authorization_code";
@@ -49,9 +49,6 @@ class Login extends Common
                 $this->echoError();
             }
             $this->setWeixinLogin($data['openid']);
-            echo "<pre>";
-            print_r($_SESSION);
-            exit;
             $access_token = $data['access_token'];
             Cache::set('access_token', $access_token,7200);
         }
@@ -72,9 +69,6 @@ class Login extends Common
     public function setWeixinLogin($openid){
         session_start();
         $_SESSION['weixin']['openid'] = $openid;
-        echo "<pre>";
-        print_r($_SESSION);
-        exit;
     }
 
     //统一界面输出错误信息
