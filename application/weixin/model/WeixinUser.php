@@ -19,14 +19,18 @@ class WeixinUser extends Model
             'ip' => request()->ip(),
         ];
         $data = model('weixin_user')->where(['openid'=>$saveData['openid']])->select();
-        echo "<pre>";
-        print_r(empty($data));
-        exit;
+        if (!empty($data)){
+            $this->edit($saveData);
+        }else{
+            $this->add($saveData);
+        }
     }
-    public function add(){
-
+    public function add($saveData){
+        $result = model('weixin_user')->save($saveData);
+        return $result;
     }
-    public function edit(){
-
+    public function edit($saveData){
+        $result = model('weixin_user')->update($saveData);
+        return $result;
     }
 }
