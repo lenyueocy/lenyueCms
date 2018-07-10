@@ -1,5 +1,5 @@
 <?php
-namespace application\wap\controller;
+namespace application\weixin\controller;
 
 use think\Config;
 use think\Db;
