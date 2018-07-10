@@ -1,6 +1,7 @@
 <?php
 namespace application\weixin\controller;
 
+use application\admin\model\WeixinBind;
 use think\Config;
 use think\Curl;
 use think\Db;
@@ -25,6 +26,7 @@ class Login extends Common
     }
     public function callback(){
         $code = $_POST['code'];
+        $access_token = $this->access_token($code);
     }
     public function access_token($code){
         $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->appsecret."&code=".$code."&grant_type=authorization_code";
