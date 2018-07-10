@@ -6,7 +6,7 @@ use think\Request;
 
 
 
-class Weixindeveloper extends Admin
+class WeixinDeveloper extends Admin
 {
 
     function _initialize()
