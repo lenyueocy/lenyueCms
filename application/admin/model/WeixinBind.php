@@ -19,7 +19,7 @@ class WeixinBind extends Admin
 		return $this->_fmtData( $data );
 	}
 
-	public function saveData( $data )
+	public function saveData($data)
 	{
 		if( isset( $data['id']) && !empty($data['id'])) {
             $result = model('weixin_bind')->allowField(true)->update($data,['id' => $data['id']]);

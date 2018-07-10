@@ -43,7 +43,7 @@ class Login extends Common
             if(isset($data['errcode'])){
                 $this->echoError();
             }
-            $this->setLogin($data['openid']);
+            $this->setWeixinLogin($data['openid']);
             $access_token = $data['access_token'];
             Cache::set('access_token', $access_token,7200);
         }
@@ -60,6 +60,11 @@ class Login extends Common
         $result = model('weixinUser')->saveUserinfo($userinfo);
         return $result;
     }
+
+    public function setWeixinLogin($openid){
+        $_SESSION['weixin']['openid'] = $openid;
+    }
+
     //统一界面输出错误信息
     public function echoError(){
         $url = url('/wap/weixin/dafeiji');
