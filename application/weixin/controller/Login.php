@@ -53,16 +53,22 @@ class Login extends Common
     public function echoError(){
         $url = url('/wap/weixin/dafeiji');
         echo <<<error
-        <script type="text/javascript" src="/static/admin/layui/layui.js"></script>
-	    <link rel="stylesheet" type="text/css" href="/static/admin/layui/css/layui.mobile.css" />
+        <html></html>
+        <script type="text/javascript" src="/static/admin/layer_mobile/layer.js"></script>
+	    <link rel="stylesheet" type="text/css" href="/static/admin/layer_mobile/need/layer.css" >
         <script>
-            layui.use(['layer', 'form'], function(){
-                var layer = layui.layer
-                    ,form = layui.form;
-                layer.msg('出现错误啦',{icon:2,time:2000},function() {
-                    location.href = "{$url}";
+                layer.open({
+                    content: '不允许点击遮罩关闭',
+                    btn: '我知道了',
+                    shadeClose: false,
+                    yes: function(){
+                    layer.open({
+                    content: '好的'
+                    ,time: 2
+                    ,skin: 'msg'
                 });
-            });
+            }
+        });
         </script>
 error;
         exit;
