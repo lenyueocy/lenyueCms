@@ -26,9 +26,7 @@ class WeixinUser extends Model
         }else{
             $result = $this->add($saveData);
         }
-        echo "<pre>";
-        print_r($result);
-        exit;
+        return $result;
     }
     public function add($saveData){
         $result = model('weixin_user')->save($saveData);

@@ -31,6 +31,11 @@ class Login extends Common
         $access_token = $this->access_token($code);
         $userinfo = $this->getUserinfo();
         $result = $this ->saveUser($userinfo);
+        if ($result){
+            $this->redirect('/wap/weixin/dafeiji');
+        }else{
+            $this->echoError();
+        }
     }
 
     public function access_token($code){
@@ -54,9 +59,6 @@ class Login extends Common
         $url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$this->access_token."&openid=OPENID&lang=zh_CN";
         $userinfo = Curl::get($url);
         $userinfo = json_decode($userinfo,true);
-        echo "<pre>";
-        print_r($userinfo);
-        exit;
         return $userinfo;
     }
     public function saveUser($userinfo){

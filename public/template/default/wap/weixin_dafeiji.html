@@ -44,11 +44,13 @@
 </div>
 <script src="__PUBLIC__/js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/dafeiji.js"></script>
+{if !$is_login}
 <script>
     $(function(){
         var redirect_uri = "{if $data.callback}{$data.callback}{else}http://fxgufen.lenyue.top/weixin/login/callback{/if}";
         location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf1b35fc53dc1cf55&redirect_uri="+redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     });
 </script>
+{/if}
 </body>
 </html>
