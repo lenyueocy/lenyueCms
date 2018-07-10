@@ -5,6 +5,10 @@ use think\Model;
 
 class WeixinUser extends Model
 {
+    public function getRow($filter){
+        $data = model('weixin_user')->where($filter)->find();
+        return $data;
+    }
     public function saveUserinfo($data){
         $saveData = [
             'openid' => $data['openid'],

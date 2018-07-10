@@ -45,7 +45,14 @@ class Weixin extends Common
         session_start();
         $model = new WeixinBind();
         $data = $model->table('admin_weixin_bind')->find();
+
         $is_login = isset($_SESSION['weixin']['openid'])?1:0;
+
+        if ($is_login){
+            $userinfo = model('WeixinUser')->getRow(['openid'=>$_SESSION['weixin']['openid']]);
+            $this->assign('userinfo',$userinfo);
+        }
+
         $this->assign('data',$data);
         $this->assign('is_login',$is_login);
         $template = $this->theme .'/wap/weixin_dafeiji.html';
