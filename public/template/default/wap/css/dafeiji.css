@@ -159,13 +159,17 @@ button{
 
 #overDiv{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    width:100%;
+    top: 0;
+    left: 0;
     /*border: 1px solid gray;*/
     /*border-radius: 5px;*/
     text-align: center;
     /*background-color:#d7ddde;*/
     transform:translate(-50%,-50%);
-    display: block;
+    display: none;
     z-index: 2;
+}
+#overDiv img{
+    width:100%;
 }

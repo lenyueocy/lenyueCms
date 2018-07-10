@@ -55,6 +55,22 @@ class Login extends Common
         $this->access_token = $access_token;
         return $access_token;
     }
+
+    public function basic_token($iscache = 1){
+//        session_start();
+        $openid = $_SESSION['weixin']['openid'];
+        if(Cache::get('basic_token_'.$openid) && $iscache==1) {
+            $access_token = Cache::get('basic_token_'.$openid);
+        }else{
+            $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" . $this->appid . "&secret=" . $this->appsecret;
+            $data = Curl::get($url);
+            $data = json_decode($data, true);
+            $access_token = $data['access_token'];
+            Cache::set('basic_token_'.$openid,$access_token,180);
+        }
+        return $access_token;
+    }
+
     public function getUserinfo(){
         $url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$this->access_token."&openid=OPENID&lang=zh_CN";
         $userinfo = Curl::get($url);

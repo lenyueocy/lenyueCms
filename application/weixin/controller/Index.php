@@ -3,6 +3,7 @@ namespace application\weixin\controller;
 
 use application\weixin\model\WeixinUser;
 use think\Config;
+use think\Curl;
 use think\Db;
 use think\View;
 class Index extends Common
@@ -34,5 +35,15 @@ class Index extends Common
             echo json_encode(['status'=>'error','msg'=>'出现错误，本次分数上传失败o(╥﹏╥)o']);
         }
         exit;
+    }
+    public function isguanzhu(){
+        session_start();
+        $openid = $_SESSION['weixin']['openid'];
+        $access_token = action('weixin/Login/basic_token');
+        $url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=".$access_token."&openid=".$openid."&lang=zh_CN";
+        $data = Curl::get($url);
+        echo $data;exit;
+        /*$data = json_decode($data,true);
+        return $data['subscribe'];*/
     }
 }

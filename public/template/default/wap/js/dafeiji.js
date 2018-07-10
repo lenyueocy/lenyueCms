@@ -169,39 +169,14 @@ var yidong=function(){
 暂停事件
  */
 var number=0;
+var findguanzhu;
 var zanting=function(type){
     if(type == 'over'){
         if(number == 0 ) {
-            overDiv.style.display = 'block';
-            if (document.removeEventListener) {
-                mainDiv.removeEventListener("touchstart", yidong, true);
-                bodyobj.removeEventListener("touchstart", bianjie, true);
-            }
-            else if (document.detachEvent) {
-                mainDiv.detachEvent("ontouchstart", yidong);
-                bodyobj.detachEvent("ontouchstart", bianjie);
-            }
-            clearInterval(set);
-            number = 1;
+            over_zangting();
+            findguanzhu = setInterval(isguanzhu,1000);
         }else{
-            overDiv.style.display = "none";
-            if (document.addEventListener) {
-                mainDiv.addEventListener("touchstart", yidong, true);
-                bodyobj.addEventListener("touchstart", bianjie, true);
-            }
-            else if (document.attachEvent) {
-                mainDiv.attachEvent("ontouchstart", yidong);
-                bodyobj.attachEvent("ontouchstart", bianjie);
-            }
-            //移除已经爆炸的本方飞机 复活重新创建本方飞机
-            document.getElementById('ourplan').parentNode.removeChild(document.getElementById('ourplan'));
-            selfplan = new ourplan(dW/2-33,dH*0.75);
-            ourPlan = document.getElementById('ourplan');
-            ourPlan.style.left = 100 + 'px';
-            ourPlan.style.top = dH-66 + 'px';
-            //-------------------------------------
-            set = setInterval(start, 20);
-            number = 0;
+            over_zangting_end();
         }
     }else {
         if (number == 0) {
@@ -442,6 +417,39 @@ function begin(){
 function jixu(){
     location.reload(true);
 }
+function over_zangting(){
+    overDiv.style.display = 'block';
+    if (document.removeEventListener) {
+        mainDiv.removeEventListener("touchstart", yidong, true);
+        bodyobj.removeEventListener("touchstart", bianjie, true);
+    }
+    else if (document.detachEvent) {
+        mainDiv.detachEvent("ontouchstart", yidong);
+        bodyobj.detachEvent("ontouchstart", bianjie);
+    }
+    clearInterval(set);
+    number = 1;
+}
+function over_zangting_end(){
+    overDiv.style.display = "none";
+    if (document.addEventListener) {
+        mainDiv.addEventListener("touchstart", yidong, true);
+        bodyobj.addEventListener("touchstart", bianjie, true);
+    }
+    else if (document.attachEvent) {
+        mainDiv.attachEvent("ontouchstart", yidong);
+        bodyobj.attachEvent("ontouchstart", bianjie);
+    }
+    //移除已经爆炸的本方飞机 复活重新创建本方飞机
+    document.getElementById('ourplan').parentNode.removeChild(document.getElementById('ourplan'));
+    selfplan = new ourplan(dW/2-33,dH*0.75);
+    ourPlan = document.getElementById('ourplan');
+    ourPlan.style.left = 100 + 'px';
+    ourPlan.style.top = dH-66 + 'px';
+    //-------------------------------------
+    set = setInterval(start, 20);
+    number = 0;
+}
 
 function overCount(){
      fuhuoDiv.style.display = 'none';
@@ -468,6 +476,17 @@ function updateScore(){
                     location.reload();
                 }
             });
+        }
+    });
+}
+function isguanzhu(){
+    $.get(isguanzhuUrl,function (res) {
+        var res = $.parseJSON(res);
+        if(res.subscribe == 1){
+            over_zangting_end();
+            clearInterval(findguanzhu);
+        }else{
+
         }
     });
 }
