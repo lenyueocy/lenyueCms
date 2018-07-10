@@ -25,9 +25,17 @@ return [
     // 定义demo模块的自动生成 （按照实际定义的文件名生成）
     'wap'     => [
         '__file__'   => ['index.php'],
-        '__dir__'    => ['behavior', 'controller', 'model', 'view'],
-        'controller' => ['Index', 'Test', 'UserType'],
-        'model'      => ['User', 'UserType'],
+        '__dir__'    => ['controller', 'model', 'view'],
+        'controller' => ['Index'],
+        'model'      => ['User'],
+        'view'       => ['index/index'],
+    ],
+    // 定义demo模块的自动生成 （按照实际定义的文件名生成）
+    'weixin'     => [
+        '__file__'   => ['index.php'],
+        '__dir__'    => ['controller', 'model', 'view'],
+        'controller' => ['Index'],
+        'model'      => ['User'],
         'view'       => ['index/index'],
     ],
 
