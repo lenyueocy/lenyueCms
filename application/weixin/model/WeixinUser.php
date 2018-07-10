@@ -18,7 +18,10 @@ class WeixinUser extends Model
             'updatetime' => time(),
             'ip' => request()->ip(),
         ];
-
+        $data = model('weixin_user')->select();
+        echo "<pre>";
+        print_r($data);
+        exit;
     }
     public function add(){
 
