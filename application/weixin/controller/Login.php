@@ -52,8 +52,8 @@ class Login extends Common
     //统一界面输出错误信息
     public function echoError(){
         echo <<<error
-        <script type="text/javascript" src="__STATIC__/admin/layui/layui.js"></script>
-	    <link rel="stylesheet" type="text/css" href="__STATIC__/admin/css/layui.mobile.css" />
+        <script type="text/javascript" src="__APP_PATH__/admin/layui/layui.js"></script>
+	    <link rel="stylesheet" type="text/css" href="__APP_PATH__/admin/css/layui.mobile.css" />
         <script>
             layui.use(['layer', 'form'], function(){
                 var layer = layui.layer
