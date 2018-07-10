@@ -37,6 +37,14 @@
                                 <div class="layui-form-mid layui-word-aux">获取方式：微信开发者平台 -> 基本配置 -> AppSecret</div>
                             </div>
 
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">回调地址</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="callback" value="{if isset($data.callback)}{$data.callback}{/if}" required="" lay-verify="required" placeholder="请输入callback" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">更改后记得去微信公众平台更改回调域</div>
+                            </div>
+
 
                             <div class="layui-form-item">
                                 <button class="layui-btn" lay-submit="" lay-filter="formDemoPane">立即提交</button>

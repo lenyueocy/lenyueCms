@@ -53,6 +53,7 @@ class WeixinDeveloper extends Admin
             'id' => $_POST['id'],
             'appid' => $_POST['appid'],
             'appsecret' => $_POST['appsecret'],
+            'callback' => $_POST['callback'],
             'bindtime' => time(),
             'ip' => $request->ip(),
 //            'ip' => request()->ip(),
