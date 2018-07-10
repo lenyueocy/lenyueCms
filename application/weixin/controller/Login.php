@@ -53,7 +53,7 @@ class Login extends Common
     public function echoError(){
         echo <<<error
         <script type="text/javascript" src="/static/admin/layui/layui.js"></script>
-	    <link rel="stylesheet" type="text/css" href="/static/admin/css/layui.mobile.css" />
+	    <link rel="stylesheet" type="text/css" href="/static/admin/layui/css/layui.mobile.css" />
         <script>
             layui.use(['layer', 'form'], function(){
                 var layer = layui.layer
