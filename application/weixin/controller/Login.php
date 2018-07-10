@@ -32,7 +32,7 @@ class Login extends Common
             $access_token = Cache::get('access_token');
         }else {
             $access_tokenData = $this->access_token($code);
-            if($access_tokenData['errcode']){
+            if(isset($access_tokenData['errcode'])){
                 $this->echoError();
             }
             Cache::set('access_token', $access_tokenData['access_token'], $access_tokenData['expires_in']);
