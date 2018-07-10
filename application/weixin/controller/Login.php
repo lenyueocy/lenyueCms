@@ -53,7 +53,9 @@ class Login extends Common
     public function echoError(){
         $url = url('/wap/weixin/dafeiji');
         echo <<<error
-        <html></html>
+        <html>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+</html>
         <script type="text/javascript" src="/static/admin/layer_mobile/layer.js"></script>
 	    <link rel="stylesheet" type="text/css" href="/static/admin/layer_mobile/need/layer.css" >
         <script>
