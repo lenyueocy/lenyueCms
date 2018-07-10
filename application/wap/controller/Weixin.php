@@ -2,8 +2,8 @@
 namespace application\wap\controller;
 
 
-use application\admin\model\WeixinBind;
-use application\weixin\model\WeixinUser;
+//use application\admin\model\WeixinBind;
+//use application\weixin\model\WeixinUser;
 use think\Controller;
 use think\model;
 use think\Db;
