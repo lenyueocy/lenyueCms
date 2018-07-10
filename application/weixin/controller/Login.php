@@ -60,17 +60,14 @@ class Login extends Common
 	    <link rel="stylesheet" type="text/css" href="/static/admin/layer_mobile/need/layer.css" >
         <script>
                 layer.open({
-                    content: '不允许点击遮罩关闭',
-                    btn: '我知道了',
+                    content: '出现错误啦o(╥﹏╥)o',
+                    btn: '点击重试',
                     shadeClose: false,
                     yes: function(){
-                    layer.open({
-                    content: '好的'
-                    ,time: 2
-                    ,skin: 'msg'
+                        location.href = "{$url}";
+                    });
+                    }
                 });
-            }
-        });
         </script>
 error;
         exit;
