@@ -18,6 +18,9 @@ class WeixinUser extends Model
             'updatetime' => time(),
             'ip' => request()->ip(),
         ];
+        echo "<pre>";
+        print_r(['openid'=>$saveData['openid']]);
+        exit;
         $data = model('weixin_user')->where(['openid'=>$saveData['openid']])->select();
         echo "<pre>";
         print_r($data);
