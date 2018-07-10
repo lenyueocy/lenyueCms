@@ -69,6 +69,9 @@ class Login extends Common
     public function setWeixinLogin($openid){
         session_start();
         $_SESSION['weixin']['openid'] = $openid;
+        echo "<pre>";
+        print_r($_SESSION);
+        exit;
     }
 
     //统一界面输出错误信息
