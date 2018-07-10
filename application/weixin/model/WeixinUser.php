@@ -14,9 +14,9 @@ class WeixinUser extends Model
             'province' => $data['province'],
             'city' => $data['city'],
             'headimgurl' => $data['headimgurl'],
-            'createtime' => $data['createtime'],
-            'updatetime' => $data['updatetime'],
-            'ip' => $data['ip'],
+            'createtime' => time(),
+            'updatetime' => time(),
+            'ip' => request()->ip(),
         ];
 
     }
