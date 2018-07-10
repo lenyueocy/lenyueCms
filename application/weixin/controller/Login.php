@@ -49,12 +49,23 @@ class Login extends Common
     public function setLogin(){
 
     }
-    //同意界面输出错误信息
+    //统一界面输出错误信息
     public function echoError(){
         echo <<<error
-        <script>alert(1);</script>
+        <script type="text/javascript" src="__STATIC__/admin/layui/layui.js"></script>
+	    <link rel="stylesheet" type="text/css" href="__STATIC__/admin/css/layui.mobile.css" />
+        <script>
+            layui.use(['layer', 'form'], function(){
+                var layer = layui.layer
+                    ,form = layui.form;
+                layer.msg('出现错误啦',{icon:2,time:2000});
+            });
+        </script>
 error;
         exit;
 
+        /*$this->assign('data',['msg'=>'出现错误啦','act'=>$act]);
+        $this->fetch('echoerror');
+        exit;*/
     }
 }
