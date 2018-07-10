@@ -45,12 +45,13 @@ class Weixin extends Common
     public function dafeiji(){
         session_start();
         $model = new WeixinBind();
+        $WeixinUserModel = new WeixinUser();
         $data = $model->table('admin_weixin_bind')->find();
 
         $is_login = isset($_SESSION['weixin']['openid'])?1:0;
 
         if ($is_login){
-            $userinfo = model('WeixinUser')->getRow(['openid'=>$_SESSION['weixin']['openid']]);
+            $userinfo = $WeixinUserModel->getRow(['openid'=>$_SESSION['weixin']['openid']]);
             $this->assign('userinfo',$userinfo);
         }
 
