@@ -37,9 +37,4 @@ class Weixin extends Common
         $template = $this->theme .'/wap/weixin_dafeiji.html';
         return $this->fetch($template);
     }
-    public function callback(){
-        echo "<pre>";
-        print_r($_REQUEST);
-        exit;
-    }
 }

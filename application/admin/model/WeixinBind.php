@@ -12,38 +12,6 @@ class WeixinBind extends Admin
 	use SoftDelete;
     protected $deleteTime = 'delete_time';
 
-	/**
-	 *  用户登录
-	 */
-	public function login(array $data)
-	{
-		$code = 1;
-		$msg = '';
-		$userValidate = validate('User');
-		if(!$userValidate->scene('login')->check($data)) {
-			return info(lang($userValidate->getError()), 4001);
-		}
-		if( $code != 1 ) {
-			return info($msg, $code);
-		}
-		$map = [
-			'mobile' => $data['mobile']
-		];
-
-		$userRow = $this->db()->where($map)->find();
-
-		if( empty($userRow) ) {
-			return info('你输入的账号或密码不正确，请重新输入', 5001);
-		}
-		$md_password = mduser( $data['password'] );
-
-		if( $userRow['password'] != $md_password ) {
-			return info('你输入的账号或密码不正确，请重新输入', 5001);
-		}
-		return info('登录成功', $code, '', $userRow);
-	}
-
-
 	public function getList( $request )
 	{
 		$request = $this->fmtRequest( $request );
@@ -54,9 +22,9 @@ class WeixinBind extends Admin
 	public function saveData( $data )
 	{
 		if( isset( $data['id']) && !empty($data['id'])) {
-            $result = model('weixin_bind')->allowField(true)->save($data,['id' => $data['id']]);
+            $result = model('weixin_bind')->allowField(true)->update($data,['id' => $data['id']]);
 		} else {
-            $result = model('weixin_bind')->save($data);
+            $result = model('weixin_bind')->add($data);
 		}
 		return $result;
 	}
