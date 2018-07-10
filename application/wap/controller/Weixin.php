@@ -44,6 +44,7 @@ class Weixin extends Common
     public function dafeiji(){
         $model = new WeixinBind();
         $data = $model->table('admin_weixin_bind')->find();
+        session_start();
         echo "<pre>";
         print_r($_SESSION['weixin']['openid']);
         exit;
