@@ -65,7 +65,7 @@
         form.render();
         //监听提交
         form.on('submit', function(data){
-            $.post("{:url('/admin/WeixinDeveloper/add')}",data.field,function(res){
+            $.post("{:url('/admin/weixin_developer/add')}",data.field,function(res){
                 var res = $.parseJSON(res);
                 if(res.status == 'success'){
                     layer.msg(res.msg, {icon:1,time: 2000},function(){location.reload();});
