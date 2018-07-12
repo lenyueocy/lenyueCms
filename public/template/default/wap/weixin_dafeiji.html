@@ -40,9 +40,12 @@
             <p id="planscore">0</p>
             <div><button onclick="jixu()">继续</button></div>
         </div>
-        <div id="overDiv">
+        <div id="overgzDiv">
             <img class="overBgImg" src="__PUBLIC__/images/weixin/dafeiji/over.png">
             <img style="margin-left: 25%;margin-top: 89%;width: 50%;" src="__PUBLIC__/images/weixin/dafeiji/weixin.jpg">
+        </div>
+        <div id="overfxDiv">
+            <img class="overBgImg" src="__PUBLIC__/images/weixin/dafeiji/over_fx.png">
         </div>
         <!-- <div id="fuhuoDiv">
             <p>很遗憾，您阵亡了</p>
@@ -58,6 +61,7 @@
 <script>
     scoresUrl = "{:url('weixin/index/dafeijiScores')}";
     isguanzhuUrl = "{:url('weixin/index/isguanzhu')}";
+    hongbaoUrl = "{:url('weixin/index/hongbao')}";
 </script>
 <script type="text/javascript" src="/static/admin/layer_mobile/layer.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/admin/layer_mobile/need/layer.css" >
@@ -103,35 +107,57 @@
             });
             //朋友圈
             wx.onMenuShareTimeline({
-                title: '打呀打飞机，啪啪啪啪啪~这是朋友圈', // 分享标题
-                desc : '啦啦啦啦，行动队邀请你快来打飞机吧 ~',
+                title: '股民福利！股民福利！！！', // 分享标题
+                desc : "对面的帅哥美女看过来看过来看过来(〃'▽'〃) ~ 哇塞！股民专属的福利来了，在家躺着也能赚钱！！！",
                 link: window.location.href, // 分享链接
                 imgUrl: '{$userinfo['headimgurl']}', // 分享图标
                 success: function () {
-                    alert('分享成功!');
-                    // 用户确认分享后执行的回调函数
+                    if (isguanzhu == 1){
+                        fuhuo();
+                    }
                 },
                 cancel: function () {
-                    alert('分享取消!');
-                    // 用户取消分享后执行的回调函数
+                    layer.open({
+                        content: '哎呀呀，还差一点点就可以复活啦<br />o(╥﹏╥)o',
+                        btn: '马上分享',
+                        shadeClose: false,
+                        yes: function(){
+                            layer.open({
+                                content:'达到5000分可以直接领取现金红包哦(*^▽^*)',
+                                time:3,
+                                skin:'msg'
+                            });
+                        }
+                    });
                 }
             });
             //好友
             wx.onMenuShareAppMessage({
-                title: '打呀打飞机，啪啪啪啪啪~这是分享好友', // 分享标题
-                desc : '啦啦啦啦，行动队邀请你快来打飞机吧 ~',
+                title: '股民福利！股民福利！！！', // 分享标题
+                desc : "对面的帅哥美女看过来看过来看过来(〃'▽'〃) ~ 哇塞！股民专属的福利来了，在家躺着也能赚钱！！！",
                 link: window.location.href, // 分享链接
                 imgUrl: '{$userinfo['headimgurl']}', // 分享图标
                 type: '', // 分享类型,music、video或link，不填默认为link
                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                 success: function () {
-
-                    share();
-                    // 用户确认分享后执行的回调函数
+                    //必须要 isguanzhu = 1 也就是必须已经关注了，才能起作用
+                    if (isguanzhu == 1){
+                        fuhuo();
+                    }
                 },
                 cancel: function () {
-                    alert('取消!');
-                    // 用户取消分享后执行的回调函数
+                    layer.open({
+                        content: '哎呀呀，还差一点点就可以复活啦<br />o(╥﹏╥)o',
+                        btn: '马上分享',
+                        shadeClose: false,
+                        yes: function(){
+                            layer.open({
+                                content:'达到5000分可以直接领取现金红包哦(*^▽^*)',
+                                time:3,
+                                skin:'msg'
+                            });
+                        }
+                    });
                 }
             });
             wx.hideMenuItems({

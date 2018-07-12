@@ -157,7 +157,7 @@ button{
     border-radius: 30px;
 }
 
-#overDiv{
+#overgzDiv{
     position: absolute;
     width:100%;
     top: 0;
@@ -170,6 +170,24 @@ button{
     display: none;
     z-index: 2;
 }
-#overDiv img{
+#overgzDiv img{
+    width:100%;
+}
+
+
+#overfxDiv{
+    position: absolute;
+    width:100%;
+    top: 0;
+    left: 0;
+    /*border: 1px solid gray;*/
+    /*border-radius: 5px;*/
+    text-align: center;
+    /*background-color:#d7ddde;*/
+    transform:translate(-50%,-50%);
+    display: none;
+    z-index: 2;
+}
+#overfxDiv img{
     width:100%;
 }

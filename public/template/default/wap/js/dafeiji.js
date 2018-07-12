@@ -13,11 +13,22 @@ var enddiv=document.getElementById("enddiv");
     //获得游戏结束后分数统计界面
 var planscore=document.getElementById("planscore");
     //获得游戏结束后分数统计界面
-var overDiv=document.getElementById("overDiv");
+var overgzDiv=document.getElementById("overgzDiv");
     //初始化分数
 var scores=0;
     //本方飞机生命条数
 var gameLife = 3;
+    //判断是否关注的变量
+var isguanzhu = 0;
+    //用来提示的标记变量
+var ismsg1 = 0;
+var ismsg2 = 0;
+var ismsg3 = 0;
+var ismsg4 = 0;
+var ismsg5 = 0;
+var ismsg6 = 0;
+    //用来判断是否是领取红包
+
 
 /*
  创建飞机类
@@ -41,21 +52,57 @@ function plan(hp,X,Y,sizeX,sizeY,score,dietime,sudu,boomimage,imagesrc){
      */
     this.planmove=function(){
         if(scores<=1000){
+            if(ismsg1 == 0) {
+                layer_msg("加油喔 ~ 当达到5000分可以直接领取现金红包哦(*^▽^*)", 3);
+                ismsg1 =1;
+            }
             this.imagenode.style.top=this.imagenode.offsetTop+this.plansudu+"px";
         }
         else if(scores>1000 && scores<=3000){
+            if(ismsg2 == 0) {
+                layer_msg("哇 好厉害耶~ 到1000分了耶 当达到5000分可以直接领取现金红包哦(*^▽^*)", 3);
+                ismsg2 =1;
+            }
             this.imagenode.style.top=this.imagenode.offsetTop+this.plansudu+1+"px";
         }
         else if(scores>3000 && scores<=5000){
+            if(ismsg3 == 0) {
+                layer_msg("哇 超神了！！~ 到3000分了耶 当达到5000分可以直接领取现金红包哦(*^▽^*)", 3);
+                ismsg3 =1;
+            }
             this.imagenode.style.top=this.imagenode.offsetTop+this.plansudu+2+"px";
         }
         else if(scores>5000 &&scores<=7000){
+            if(ismsg4 == 0) {
+                layer_msg("哇 单身20年的手速~ 到5000分了耶 可以直接领取现金红包哦(*^▽^*)", 3);
+                ismsg4 =1;
+                zanting();
+                layer.open({
+                    content: '恭喜你凭着你的实力获得一次抽奖机会，是否领取？'
+                    ,btn: ['打开红包', '继续游戏']
+                    ,yes: function(index){
+                        redEnvelope();
+                        layer.close(index);
+                    }
+                    ,no:function(index){
+                        layer.close(index);
+                    }
+                });
+            }
             this.imagenode.style.top=this.imagenode.offsetTop+this.plansudu+3+"px";
         }
         else if(scores>7000 &&scores <= 10000){
+            if(ismsg5 == 0) {
+                layer_msg("到7000分了耶 啥也不说 我已经对你佩服的五体投地了(*^▽^*)", 3);
+                ismsg5 =1;
+            }
             this.imagenode.style.top=this.imagenode.offsetTop+this.plansudu+4+"px";
         }
         else{
+            if(ismsg6 == 0) {
+                layer_msg("这个分数地球人是达不到的，你肯定不是地球人！！！", 5);
+                ismsg6 =1;
+            }
             this.imagenode.style.top=this.imagenode.offsetTop+this.plansudu+5+"px";
         }
     }
@@ -132,14 +179,6 @@ var selfplan=new ourplan(dW/2-33,dH*0.75);
 //移动事件
 var ourPlan=document.getElementById('ourplan');
 var yidong=function(){
-    // var oevent=window.event||arguments[0];
-    // var chufa=oevent.srcElement||oevent.target;
-    // var selfplanX=oevent.clientX;
-    // var selfplanY=oevent.clientY;
-    // ourPlan.style.left=selfplanX-selfplan.plansizeX/2+"px";
-    // ourPlan.style.top=selfplanY-selfplan.plansizeY/2+"px";
-//    document.getElementsByTagName('img')[0].style.left=selfplanX-selfplan.plansizeX/2+"px";
-//    document.getElementsByTagName('img')[0]..style.top=selfplanY-selfplan.plansizeY/2+"px";
     var endTouchY = 0;
     var endTouchX = 0;
     ourPlan.addEventListener('touchstart',function(ev){
@@ -173,8 +212,12 @@ var findguanzhu;
 var zanting=function(type){
     if(type == 'over'){
         if(number == 0 ) {
+            //死亡后添加页面的激活性判断，假如页面为未激活，则是用户去关注或者分享了。返回页面激活状态时去判断用户是否关注
+            checkisguanzhu();
+
+            //执行死亡暂停事件,判断复活后继续
             over_zangting();
-            // findguanzhu = setInterval(checkisguanzhu,1000);
+
         }else{
             over_zangting_end();
         }
@@ -230,11 +273,7 @@ var bianjie=function(){
     }
 }
 //暂停界面重新开始事件
-//function chongxinkaishi(){
-//    location.reload(true);
-//    startdiv.style.display="none";
-//    maindiv.style.display="block";
-//}
+
 var bodyobj=document.getElementsByTagName("body")[0];
 if(document.addEventListener){
     //为本方飞机添加移动和暂停
@@ -410,7 +449,7 @@ function start(){
  */
 var set;
 function begin(){
-
+    isguanzhu = func_isguanzhu();
     startdiv.style.display="none";
     mainDiv.style.display="block";
     selfplan.imagenode.style.display="block";
@@ -426,8 +465,13 @@ function jixu(){
 }
 
 function over_zangting(){
-    overDiv.style.display = 'block';
-    $(overDiv).children('.overBgImg').height = '500px';
+    if(isguanzhu == 0) {
+        overgzDiv.style.display = 'block';
+        // $(overgzDiv).children('.overBgImg').height = '500px';
+    }else{
+        overfxDiv.style.display = 'block';
+        // $(overfxDiv).children('.overBgImg').height = '500px';
+    }
     if (document.removeEventListener) {
         mainDiv.removeEventListener("touchstart", yidong, true);
         bodyobj.removeEventListener("touchstart", bianjie, true);
@@ -441,7 +485,8 @@ function over_zangting(){
 }
 
 function over_zangting_end(){
-    overDiv.style.display = "none";
+        overgzDiv.style.display = 'none';
+        overfxDiv.style.display = 'none';
     if (document.addEventListener) {
         mainDiv.addEventListener("touchstart", yidong, true);
         bodyobj.addEventListener("touchstart", bianjie, true);
@@ -491,25 +536,92 @@ function updateScore(){
     });
 }
 function checkisguanzhu(){
-    var isguanzhu = isguanzhu();
-    alert(isguanzhu)
+    if(isguanzhu == 0){
+        documentIsHidden('add');
+    }
+
 }
-function isguanzhu(){
-    var isguanzhu = 0;
-    $.get(isguanzhuUrl,function (res) {
-        var res = $.parseJSON(res);
-        isguanzhu = res.subscribe == 1 ?1:0;
-        return isguanzhu;
-    });
+function okfuhuo(){
+    if(isguanzhu == 1){
+        // documentIsHidden('remove');
+        over_zangting_end();
+    }else{
+        layer.open({
+            content: '快去关注吧，还差一点点就可以复活啦<br />o(╥﹏╥)o',
+            btn: '马上关注',
+            shadeClose: false,
+            yes: function(){
+                layer.open({
+                    content:'达到5000分可以直接领取现金红包哦(*^▽^*)',
+                    time:4,
+                    skin:'msg'
+                });
+            }
+        });
+    }
 }
 
-function share(){
-    fuhuo();
+function func_isguanzhu(){
+    $.ajax({
+        url:isguanzhuUrl,
+        async:false,
+        success:function(res){
+            var res = $.parseJSON(res);
+            isguanzhu = res.subscribe == 1 ?1:0;
+        }
+    });
+    return isguanzhu;
 }
+
 
 function fuhuo(){
     over_zangting_end();
-    clearInterval(findguanzhu);
+    // clearInterval(findguanzhu);
+}
+var visibilityChangeEvent;
+function documentIsHidden(type){
+    var hiddenProperty = 'hidden' in document ? 'hidden' :
+        'webkitHidden' in document ? 'webkitHidden' :
+            'mozHidden' in document ? 'mozHidden' :
+                null;
+    visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+    if(type == 'add') {
+        var onVisibilityChange = function () {
+            if (!document[hiddenProperty]) {
+                if (isguanzhu == 0) {
+                    isguanzhu = func_isguanzhu();
+                    okfuhuo();
+                }
+            }
+        }
+        document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+    }else{
+        document.removeEventListener(visibilityChangeEvent)
+    }
+}
+
+function layer_msg(content,time){
+    layer.open({
+        content:content,
+        time:time,
+        skin:'msg'
+    });
+}
+function redEnvelope(){
+    $.ajax({
+        url:hongbaoUrl,
+        type:'post',
+        data:{'money':2},
+        async:false,
+        success:function(res){
+            var res = $.parseJSON(res);
+            layer.open({
+                content:res.msg,
+                time:2,
+                skin:'msg'
+            });
+        }
+    });
 }
 
 /*

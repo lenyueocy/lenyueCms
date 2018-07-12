@@ -24,7 +24,6 @@ class Index extends Common
             'user_id' => $userinfo['id'],
             'openid' => $openid,
             'scores' => $scores,
-            'money' => 0,
             'updatetime' => time(),
             'ip' => request()->ip(),
         ];
@@ -45,5 +44,21 @@ class Index extends Common
         echo $data;exit;
         /*$data = json_decode($data,true);
         return $data['subscribe'];*/
+    }
+    public function hongbao(){
+        $WeixinUserModel = new WeixinUser();
+        $money = $_POST['money'];
+        $openid = $_SESSION['weixin']['openid'];
+        $data = [
+            'openid' => $openid,
+            'money' => $money,
+        ];
+        $result = model('WeixinScores')->saveHongbao($data);
+        if($result){
+            echo json_encode(['status'=>'success','msg'=>'恭喜你，红包已成功进入你的余额~']);
+        }else{
+            echo json_encode(['status'=>'error','msg'=>'出现错误，红包溜走了o(╥﹏╥)o']);
+        }
+        exit;
     }
 }

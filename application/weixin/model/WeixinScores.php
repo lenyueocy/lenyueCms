@@ -35,4 +35,12 @@ class WeixinScores extends Model
         $result = model('WeixinScores')->where(['openid'=>$saveData['openid']])->update($savedata);
         return $result;
     }
+    public function saveHongbao($saveData)
+    {
+        $data=[
+            'money'=>$saveData['money'],
+        ];
+        $result = model('WeixinScores')->where(['openid'=>$saveData['openid']])->update($data);
+        return $result;
+    }
 }
