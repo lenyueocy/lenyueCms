@@ -22,10 +22,11 @@ class Login extends Common
         $this->appsecret = $data['appsecret'];
     }
 
-    public function index()
+    /*public function index()
     {
         return '<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p> ThinkPHP V5<br/><span style="font-size:30px">十年磨一剑 - 为API开发设计的高性能框架</span></p><span style="font-size:22px;">[ V5.0 版本由 <a href="http://www.qiniu.com" target="qiniu">七牛云</a> 独家赞助发布 ]</span></div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_bd568ce7058a1091"></thinkad>';
-    }
+    }*/
+
     public function callback(){
         $code = $_GET['code'];
         $access_token = $this->access_token($code);
@@ -39,36 +40,64 @@ class Login extends Common
     }
 
     public function access_token($code){
-//        if(Cache::get('access_token')){
-//            $access_token = Cache::get('access_token');
-//        }else {
+        if(Cache::get('access_token')){
+            $access_token = Cache::get('access_token');
+            $result = $this->checkoutAccesstoken($access_token);
+        }
+        if(Cache::get('access_token') && $result){
+            $access_token = Cache::get('access_token');
+        }else {
             $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->appid . "&secret=" . $this->appsecret . "&code=" . $code . "&grant_type=authorization_code";
             $data = Curl::get($url);
             $data = json_decode($data, true);
+            //echo "<script>alert('".json_encode($data)."');</script>";exit;
             if(isset($data['errcode'])){
                 $this->echoError();
             }
             $this->setWeixinLogin($data['openid']);
             $access_token = $data['access_token'];
-//            Cache::set('access_token', $access_token,7200);
-//        }
+            Cache::set('access_token', $access_token,7000);
+        }
         $this->access_token = $access_token;
         return $access_token;
     }
 
-    public function basic_token($iscache = 1){
-//        session_start();
+    public function basic_token(){
+        //目测是一次性的，用完一次就过期了。
         $openid = $_SESSION['weixin']['openid'];
-        if(Cache::get('basic_token_'.$openid) && $iscache==1) {
-            $access_token = Cache::get('basic_token_'.$openid);
+        if(Cache::get('basic_token')){
+            $access_token = Cache::get('basic_token');
+            $result = $this->checkoutAccesstoken($access_token);
+        }
+        if(Cache::get('basic_token') && $result) {
+            $access_token = Cache::get('basic_token');
         }else{
             $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" . $this->appid . "&secret=" . $this->appsecret;
             $data = Curl::get($url);
             $data = json_decode($data, true);
             $access_token = $data['access_token'];
-            Cache::set('basic_token_'.$openid,$access_token,180);
+            Cache::set('basic_token',7000);
         }
         return $access_token;
+    }
+    public function refresh_accessToken($access_token){
+        $url = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=".$this->appid."&grant_type=refresh_token&refresh_token=".$access_token;
+        $data = Curl::get($url);
+        echo "<pre>";
+        print_r($data);
+        exit;
+    }
+
+    public function checkoutAccesstoken($access_token){
+        $url = "https://api.weixin.qq.com/sns/auth?access_token=".$access_token."&openid=".$this->appid;
+        $data = Curl::get($url);
+        $data = json_decode($data,true);
+        if($data['errcode'] == '0'){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     public function getUserinfo(){
@@ -86,7 +115,7 @@ class Login extends Common
     }
 
     public function setWeixinLogin($openid){
-        session_start();
+//        session_start();
         $_SESSION['weixin']['openid'] = $openid;
     }
 

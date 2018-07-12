@@ -174,7 +174,7 @@ var zanting=function(type){
     if(type == 'over'){
         if(number == 0 ) {
             over_zangting();
-            findguanzhu = setInterval(isguanzhu,1000);
+            // findguanzhu = setInterval(checkisguanzhu,1000);
         }else{
             over_zangting_end();
         }
@@ -320,6 +320,7 @@ function start(){
 /*
  如果敌机超出边界,删除敌机
  */
+
         if(enemys[i].imagenode.offsetTop>dH){
             mainDiv.removeChild(enemys[i].imagenode);
             enemys.splice(i,1);
@@ -370,7 +371,13 @@ function start(){
                   if(enemys[j].imagenode.offsetTop+enemys[j].plansizeY>=selfplan.imagenode.offsetTop+40&&enemys[j].imagenode.offsetTop<=selfplan.imagenode.offsetTop-20+selfplan.plansizeY){
                       //碰撞本方飞机，游戏结束，统计分数
                       selfplan.imagenode.src="/template/default/wap/images/weixin/dafeiji/本方飞机爆炸.gif";
+
+                      //触碰之后应该同归于尽的，这是个bug
+                      enemys[j].planisdie=true;
+                      enemys[j].imagenode.src=enemys[j].planboomimage;
+                      //更改最高分
                       updateScore();
+                      //死亡触发暂停事件（假死亡）关注或分享后复活
                       zanting('over');
                       return;
                   }
@@ -417,8 +424,10 @@ function begin(){
 function jixu(){
     location.reload(true);
 }
+
 function over_zangting(){
     overDiv.style.display = 'block';
+    $(overDiv).children('.overBgImg').height = '500px';
     if (document.removeEventListener) {
         mainDiv.removeEventListener("touchstart", yidong, true);
         bodyobj.removeEventListener("touchstart", bianjie, true);
@@ -430,6 +439,7 @@ function over_zangting(){
     clearInterval(set);
     number = 1;
 }
+
 function over_zangting_end(){
     overDiv.style.display = "none";
     if (document.addEventListener) {
@@ -464,6 +474,7 @@ function overCount(){
          bodyobj.removeEventListener("touchstart",bianjie,true);
      }
 }
+
 function updateScore(){
     $.post(scoresUrl,{scores:scores},function (res) {
         var res = $.parseJSON(res);
@@ -479,16 +490,26 @@ function updateScore(){
         }
     });
 }
+function checkisguanzhu(){
+    var isguanzhu = isguanzhu();
+    alert(isguanzhu)
+}
 function isguanzhu(){
+    var isguanzhu = 0;
     $.get(isguanzhuUrl,function (res) {
         var res = $.parseJSON(res);
-        if(res.subscribe == 1){
-            over_zangting_end();
-            clearInterval(findguanzhu);
-        }else{
-
-        }
+        isguanzhu = res.subscribe == 1 ?1:0;
+        return isguanzhu;
     });
+}
+
+function share(){
+    fuhuo();
+}
+
+function fuhuo(){
+    over_zangting_end();
+    clearInterval(findguanzhu);
 }
 
 /*

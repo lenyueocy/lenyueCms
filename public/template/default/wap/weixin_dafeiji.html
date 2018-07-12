@@ -41,8 +41,8 @@
             <div><button onclick="jixu()">继续</button></div>
         </div>
         <div id="overDiv">
-            <img src="__PUBLIC__/images/weixin/dafeiji/over.png">
-            <img src="__PUBLIC__/images/weixin/dafeiji/weixin.jpg">
+            <img class="overBgImg" src="__PUBLIC__/images/weixin/dafeiji/over.png">
+            <img style="margin-left: 25%;margin-top: 89%;width: 50%;" src="__PUBLIC__/images/weixin/dafeiji/weixin.jpg">
         </div>
         <!-- <div id="fuhuoDiv">
             <p>很遗憾，您阵亡了</p>
@@ -53,6 +53,8 @@
         </div> -->
     </div>
 </div>
+{if $is_login}
+{/if}
 <script>
     scoresUrl = "{:url('weixin/index/dafeijiScores')}";
     isguanzhuUrl = "{:url('weixin/index/isguanzhu')}";
@@ -60,6 +62,7 @@
 <script type="text/javascript" src="/static/admin/layer_mobile/layer.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/admin/layer_mobile/need/layer.css" >
 <script src="__PUBLIC__/js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 {js href="__PUBLIC__/js/dafeiji.js" /}
 
 {if !$is_login}
@@ -69,6 +72,73 @@
         location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf1b35fc53dc1cf55&redirect_uri="+redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     });
 </script>
+{/if}
+{if $is_login}
+     <script>
+        wx.config({
+            //debug: true,
+            appId: '{$jssdk.appid}',
+            timestamp: {$jssdk.timestamp},
+            nonceStr:'{$jssdk.nonceStr}',
+            signature: '{$jssdk.signature}',
+            jsApiList: [
+                // 所有要调用的 API 都要加到这个列表中
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'hideMenuItems'
+            ]
+        });
+        wx.ready(function () {
+            // 在这里调用 API
+            wx.checkJsApi({
+                jsApiList: [
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'hideMenuItems'
+                ],
+                success: function (res) {
+//                alert(JSON.stringify(res));
+                }
+            });
+            //朋友圈
+            wx.onMenuShareTimeline({
+                title: '打呀打飞机，啪啪啪啪啪~这是朋友圈', // 分享标题
+                desc : '啦啦啦啦，行动队邀请你快来打飞机吧 ~',
+                link: window.location.href, // 分享链接
+                imgUrl: '{$userinfo['headimgurl']}', // 分享图标
+                success: function () {
+                    alert('分享成功!');
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    alert('分享取消!');
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            //好友
+            wx.onMenuShareAppMessage({
+                title: '打呀打飞机，啪啪啪啪啪~这是分享好友', // 分享标题
+                desc : '啦啦啦啦，行动队邀请你快来打飞机吧 ~',
+                link: window.location.href, // 分享链接
+                imgUrl: '{$userinfo['headimgurl']}', // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+
+                    share();
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    alert('取消!');
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.hideMenuItems({
+                menuList: ['menuItem:share:qq', 'menuItem:share:weiboApp', 'menuItem:favorite', 'menuItem:share:QZone', "menuItem:copyUrl", 'menuItem:openWithQQBrowser', 'menuItem:share:email', 'menuItem:openWithSafari'] // 要显示的菜单项，所有menu项见附录3
+            });
+        });
+    </script>
 {/if}
 </body>
 </html>
